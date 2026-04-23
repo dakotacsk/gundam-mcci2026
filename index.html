@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gundam Model — Material Science Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Jost:ital,wght@0,100..900;1,100..900&family=Lacquer&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Press+Start+2P&family=Roboto+Mono:wght@500&family=Ropa+Sans&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: "New Zelek";
+      src: url("./assets/New Zelek.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --color-bg: #F4F6F8;
+      --color-surface: #FFFFFF;
+      --color-panel: #E9EEF3;
+      --color-ink: #111318;
+      --color-outline: #1D2430;
+      --color-gundam-blue: #0057B8;
+      --color-gundam-red: #E10613;
+      --color-gundam-yellow: #F7B500;
+      --color-gundam-white: #FCFCFD;
+      --color-steel: #6E7B8B;
+      --color-signal-green: #3DDC84;
+      --color-thruster-orange: #FF7A00;
+      --color-warning-amber: #FFC928;
+      --color-dark-navy: #0B1B3A;
+
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 24px;
+      --space-6: 32px;
+      --space-7: 48px;
+      --space-8: 64px;
+      --space-9: 96px;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+
+      --border-strong: 2px solid var(--color-outline);
+      --border-default: 1px solid var(--color-outline);
+
+      --shadow-panel: 0 8px 24px rgba(17, 19, 24, 0.08);
+
+      --font-display: "New Zelek", "Jost", "Outfit", sans-serif;
+      --font-heading: "Jost", "Outfit", "Noto Sans", sans-serif;
+      --font-body: "Noto Sans", "Outfit", "Jost", sans-serif;
+      --font-mono: "Roboto Mono", "Courier Prime", monospace;
+      --font-accent: "Lacquer", "Press Start 2P", cursive;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-5);
+    }
+
+    /* Header */
+    .header {
+      background: var(--color-surface);
+      border-bottom: var(--border-default);
+      padding: var(--space-4) 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-ink);
+    }
+
+    .logo-accent {
+      color: var(--color-gundam-blue);
+    }
+
+    .nav-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-steel);
+    }
+
+    /* Hero */
+    .hero {
+      padding: var(--space-9) 0 var(--space-4);
+      text-align: center;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 10vw, 88px);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      line-height: 1.1;
+      margin-bottom: var(--space-4);
+      animation: fadeSlideUp 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--color-steel);
+      animation: fadeSlideUp 0.6s ease-out 0.15s forwards;
+      opacity: 0;
+    }
+
+    .hero-accent {
+      color: var(--color-gundam-blue);
+    }
+
+    /* Board Grid - Bento Layout */
+    .board-section {
+      padding: var(--space-7) 0 var(--space-9);
+      overflow-x: hidden;
+    }
+
+    .board-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .board-card {
+      position: relative;
+      background: transparent;
+      border: none;
+      padding: var(--space-2);
+      cursor: pointer;
+      animation: floatIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards, float 6s ease-in-out infinite;
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .board-card.large {
+      width: 400px;
+      height: 350px;
+    }
+
+    .board-card.medium {
+      width: 280px;
+      height: 245px;
+    }
+
+    .board-card.small {
+      width: 220px;
+      height: 193px;
+    }
+
+    .board-card:nth-child(1) { animation-delay: 0.2s, 0s; animation-duration: 0.8s, 6s; }
+    .board-card:nth-child(2) { animation-delay: 0.3s, 0.5s; animation-duration: 0.8s, 7s; }
+    .board-card:nth-child(3) { animation-delay: 0.4s, 1s; animation-duration: 0.8s, 5.5s; }
+    .board-card:nth-child(4) { animation-delay: 0.5s, 0.3s; animation-duration: 0.8s, 6.5s; }
+    .board-card:nth-child(5) { animation-delay: 0.6s, 0.8s; animation-duration: 0.8s, 5s; }
+    .board-card:nth-child(6) { animation-delay: 0.7s, 1.2s; animation-duration: 0.8s, 7.5s; }
+    .board-card:nth-child(7) { animation-delay: 0.8s, 0.2s; animation-duration: 0.8s, 6s; }
+    .board-card:nth-child(8) { animation-delay: 0.9s, 0.6s; animation-duration: 0.8s, 5.5s; }
+    .board-card:nth-child(9) { animation-delay: 1.0s, 0.9s; animation-duration: 0.8s, 6.5s; }
+
+    @media (max-width: 900px) {
+      .board-card.large { width: 320px; height: 280px; }
+      .board-card.medium { width: 240px; height: 210px; }
+      .board-card.small { width: 200px; height: 175px; }
+    }
+
+    @media (max-width: 600px) {
+      .board-card.large, .board-card.medium, .board-card.small { 
+        width: 160px; 
+        height: 140px; 
+      }
+    }
+
+    .board-card:hover {
+      transform: scale(1.05);
+      z-index: 10;
+      animation-play-state: paused;
+    }
+
+    .board-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: filter 0.3s ease-out;
+    }
+
+    .board-card:hover .board-image {
+      filter: brightness(1.1) drop-shadow(0 8px 24px rgba(0, 91, 184, 0.3));
+    }
+
+    .board-label {
+      position: absolute;
+      bottom: var(--space-2);
+      left: var(--space-3);
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-ink);
+      background: rgba(252, 252, 253, 0.85);
+      padding: var(--space-1) var(--space-2);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    }
+
+    .board-card:hover .board-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .board-tag {
+      position: absolute;
+      top: var(--space-2);
+      right: var(--space-3);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--color-steel);
+      background: rgba(252, 252, 253, 0.85);
+      padding: var(--space-1) var(--space-2);
+      opacity: 0;
+      transform: translateY(-8px);
+      transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    }
+
+    .board-card:hover .board-tag {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--color-dark-navy);
+      color: var(--color-gundam-white);
+      padding: var(--space-7) 0;
+      text-align: center;
+    }
+
+    .footer-text {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.7;
+    }
+
+    /* Animations */
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatIn {
+      0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* Utility */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">
+          Gundam <span class="hero-accent">Models</span>
+        </h1>
+        <p class="hero-subtitle">Select a board to learn about the materials used in Gundam models</p>
+      </div>
+    </section>
+
+    <section class="board-section">
+      <div class="board-grid">
+          <a href="cultural-significance.html" class="board-card large">
+            <img 
+              src="./assets/boardA_unselected.png" 
+              alt="Board A"
+              class="board-image"
+              data-hover="./assets/boardA_selected.png"
+            >
+            <div class="board-label">Cultural Significance</div>
+            <div class="board-tag">Board A</div>
+          </a>
+
+          <a href="plastic-origin.html" class="board-card large">
+            <img 
+              src="./assets/boardB_unselected.png" 
+              alt="Board B"
+              class="board-image"
+              data-hover="./assets/boardB_selected.png"
+            >
+            <div class="board-label">Plastic Origin</div>
+            <div class="board-tag">Board B</div>
+          </a>
+
+          <a href="manufacturing-process.html" class="board-card large">
+            <img 
+              src="./assets/boardC_unselected.png" 
+              alt="Board C"
+              class="board-image"
+              data-hover="./assets/boardC_selected.png"
+            >
+            <div class="board-label">Manufacturing Process</div>
+            <div class="board-tag">Board C</div>
+          </a>
+
+          <a href="material-properties.html" class="board-card medium">
+            <img 
+              src="./assets/boardD_unselected.png" 
+              alt="Board D"
+              class="board-image"
+              data-hover="./assets/boardD_selected.png"
+            >
+            <div class="board-label">Material Properties</div>
+            <div class="board-tag">Board D</div>
+          </a>
+
+          <a href="environmental-impact.html" class="board-card medium">
+            <img 
+              src="./assets/boardE_unselected.png" 
+              alt="Board E"
+              class="board-image"
+              data-hover="./assets/boardE_selected.png"
+            >
+            <div class="board-label">Environmental Impact</div>
+            <div class="board-tag">Board E</div>
+          </a>
+
+          <a href="assembly.html" class="board-card large">
+            <img 
+              src="./assets/boardF_unselected.png" 
+              alt="Board F"
+              class="board-image"
+              data-hover="./assets/boardF_selected.png"
+            >
+            <div class="board-label">Assembly</div>
+            <div class="board-tag">Board F</div>
+          </a>
+
+          <a href="historical-context.html" class="board-card small">
+            <img 
+              src="./assets/boardI1_unselected.png" 
+              alt="Board I1"
+              class="board-image"
+              data-hover="./assets/boardI1_selected.png"
+            >
+            <div class="board-label">Historical Context</div>
+            <div class="board-tag">Board I1</div>
+          </a>
+
+          <a href="design-analysis.html" class="board-card small">
+            <img 
+              src="./assets/boardPC-7_unselected.png" 
+              alt="Board PC-7"
+              class="board-image"
+              data-hover="./assets/boardPC-7_selected.png"
+            >
+            <div class="board-label">Design Analysis</div>
+            <div class="board-tag">Board PC-7</div>
+          </a>
+
+          <a href="sources.html" class="board-card small">
+            <img 
+              src="./assets/boardSB13_unselected.png" 
+              alt="Board SB13"
+              class="board-image"
+              data-hover="./assets/boardSB13_selected.png"
+            >
+            <div class="board-label">Sources</div>
+            <div class="board-tag">Board SB13</div>
+          </a>
+        </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">Material Science Project — MCCI 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.board-card').forEach(card => {
+      const img = card.querySelector('.board-image');
+      const defaultSrc = img.src;
+      const hoverSrc = img.dataset.hover;
+
+      card.addEventListener('mouseenter', () => {
+        img.src = hoverSrc;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        img.src = defaultSrc;
+      });
+    });
+  </script>
+</body>
+</html>

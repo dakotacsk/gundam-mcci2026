@@ -42,6 +42,9 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  cursor: url("https://cdn.cursors-4u.net/previews/mobile-suit-gundam-rx-78-2-ae211299-32.webp") 32 32, auto !important;
+}
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
@@ -68,8 +71,8 @@ a { text-decoration: none; color: inherit; }
   pointer-events: none;
 }
 
-.particle-background { overflow: hidden; z-index: 0; }
-.ghost-canvas { width: 100%; height: 100%; z-index: 0; }
+.particle-background { display: none; }
+.ghost-canvas { width: 100%; height: 100%; z-index: 150; }
 .grain-overlay {
   z-index: 200;
   opacity: 0.16;

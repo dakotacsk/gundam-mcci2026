@@ -1,33 +1,5 @@
 (() => {
-  const particleContainer = document.querySelector(".particle-background");
   const ghostCanvas = document.querySelector(".ghost-canvas");
-
-  if (particleContainer) {
-    const particleColors = ["particle-cyan", "particle-blue", "particle-pink"];
-    const particleCount = 52;
-
-    for (let i = 0; i < particleCount; i += 1) {
-      const particle = document.createElement("span");
-      const width = Math.floor(Math.random() * 58) + 20;
-      const height = Math.floor(Math.random() * 5) + 2;
-      const duration = Math.random() * 10 + 8;
-      const delay = Math.random() * -22;
-      const startY = Math.random() * 100;
-      const driftY = (Math.random() * 6 - 3).toFixed(2);
-      const colorClass = particleColors[Math.floor(Math.random() * particleColors.length)];
-
-      particle.className = `particle ${colorClass}`;
-      particle.style.width = `${width}px`;
-      particle.style.height = `${height}px`;
-      particle.style.left = "-12vw";
-      particle.style.top = `${startY}vh`;
-      particle.style.animationDuration = `${duration.toFixed(2)}s`;
-      particle.style.animationDelay = `${delay.toFixed(2)}s`;
-      particle.style.setProperty("--start-y", "0px");
-      particle.style.setProperty("--drift-y", `${driftY}vh`);
-      particleContainer.appendChild(particle);
-    }
-  }
 
   if (ghostCanvas) {
     const ghostCtx = ghostCanvas.getContext("2d");

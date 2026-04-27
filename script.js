@@ -205,10 +205,174 @@
     });
   });
 
+  const openImageLightbox = ({ src, alt }) => {
+    const overlay = document.createElement("div");
+    const viewport = document.createElement("div");
+    const stage = document.createElement("div");
+    const expanded = document.createElement("img");
+    const toolbar = document.createElement("div");
+    const zoomOutButton = document.createElement("button");
+    const zoomInButton = document.createElement("button");
+    const zoomLabel = document.createElement("div");
+    const closeButton = document.createElement("button");
+    let closing = false;
+    let zoom = 1;
+    let fitScale = 1;
+    let minZoom = 0.4;
+    const maxZoom = 4;
+
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+    const getViewportInnerSize = () => {
+      const viewportStyle = window.getComputedStyle(viewport);
+      const availableWidth = Math.max(
+        1,
+        viewport.clientWidth - parseFloat(viewportStyle.paddingLeft) - parseFloat(viewportStyle.paddingRight),
+      );
+      const availableHeight = Math.max(
+        1,
+        viewport.clientHeight - parseFloat(viewportStyle.paddingTop) - parseFloat(viewportStyle.paddingBottom),
+      );
+      return { availableWidth, availableHeight };
+    };
+
+    const centerStageScroll = () => {
+      viewport.scrollLeft = Math.max(0, (stage.scrollWidth - viewport.clientWidth) / 2);
+      viewport.scrollTop = Math.max(0, (stage.scrollHeight - viewport.clientHeight) / 2);
+    };
+
+    const applyImageZoom = (keepScroll = false) => {
+      const { availableWidth, availableHeight } = getViewportInnerSize();
+      const scale = fitScale * zoom;
+      const scaledWidth = expanded.naturalWidth * scale;
+      const scaledHeight = expanded.naturalHeight * scale;
+      const stageWidth = Math.max(availableWidth, scaledWidth);
+      const stageHeight = Math.max(availableHeight, scaledHeight);
+
+      stage.style.width = `${stageWidth}px`;
+      stage.style.height = `${stageHeight}px`;
+      expanded.style.width = `${scaledWidth}px`;
+      expanded.style.height = `${scaledHeight}px`;
+      zoomLabel.textContent = `${Math.round(zoom * 100)}%`;
+      if (!keepScroll || zoom <= minZoom + 0.001) {
+        centerStageScroll();
+      }
+    };
+
+    const setZoomFromWheel = (delta) => {
+      const direction = delta > 0 ? -0.1 : 0.1;
+      const nextZoom = clamp(Math.round((zoom + direction) * 10) / 10, minZoom, maxZoom);
+      if (nextZoom === zoom) return;
+      zoom = nextZoom;
+      applyImageZoom(true);
+    };
+
+    const changeZoom = (amount) => {
+      const nextZoom = clamp(Math.round((zoom + amount) * 10) / 10, minZoom, maxZoom);
+      if (nextZoom === zoom) return;
+      zoom = nextZoom;
+      applyImageZoom(true);
+    };
+
+    const updateFitScale = () => {
+      if (!expanded.naturalWidth || !expanded.naturalHeight) return;
+      const { availableWidth, availableHeight } = getViewportInnerSize();
+      const widthScale = availableWidth / expanded.naturalWidth;
+      const heightScale = availableHeight / expanded.naturalHeight;
+      fitScale = Math.min(widthScale, heightScale) * 0.9;
+      minZoom = 0.4;
+      zoom = clamp(zoom, minZoom, maxZoom);
+      applyImageZoom();
+    };
+
+    overlay.className = "image-lightbox";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", alt || "Expanded image");
+    viewport.className = "image-lightbox-viewport";
+    expanded.src = src;
+    expanded.alt = alt || "";
+    toolbar.className = "image-lightbox-toolbar";
+    zoomOutButton.className = "image-lightbox-button";
+    zoomOutButton.type = "button";
+    zoomOutButton.setAttribute("aria-label", "Zoom out");
+    zoomOutButton.textContent = "-";
+    zoomInButton.className = "image-lightbox-button";
+    zoomInButton.type = "button";
+    zoomInButton.setAttribute("aria-label", "Zoom in");
+    zoomInButton.textContent = "+";
+    zoomLabel.className = "image-lightbox-zoom-label";
+    zoomLabel.setAttribute("aria-live", "polite");
+    closeButton.className = "image-lightbox-button image-lightbox-close";
+    closeButton.type = "button";
+    closeButton.setAttribute("aria-label", "Close expanded image");
+    closeButton.textContent = "×";
+
+    const close = () => {
+      if (closing) return;
+      closing = true;
+      document.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("resize", updateFitScale);
+      document.body.classList.remove("has-expanded-image");
+      overlay.remove();
+    };
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") close();
+      if (event.key === "+" || event.key === "=") changeZoom(0.2);
+      if (event.key === "-") changeZoom(-0.2);
+    };
+
+    overlay.addEventListener("click", (event) => {
+      if (event.target === overlay || event.target === viewport) close();
+    });
+    overlay.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      setZoomFromWheel(event.deltaY);
+    }, { passive: false });
+    expanded.addEventListener("dragstart", (event) => {
+      event.preventDefault();
+    });
+    zoomOutButton.addEventListener("click", () => changeZoom(-0.2));
+    zoomInButton.addEventListener("click", () => changeZoom(0.2));
+    closeButton.addEventListener("click", close);
+    document.addEventListener("keydown", onKeyDown);
+    window.addEventListener("resize", updateFitScale);
+    expanded.addEventListener("load", updateFitScale, { once: true });
+
+    toolbar.append(zoomOutButton, zoomInButton, zoomLabel, closeButton);
+    stage.className = "image-lightbox-stage";
+    stage.append(expanded);
+    viewport.append(stage);
+    overlay.append(viewport, toolbar);
+    document.body.append(overlay);
+    document.body.classList.add("has-expanded-image");
+    updateFitScale();
+    closeButton.focus();
+  };
+
+  document.querySelectorAll(".content-page .fig img").forEach((img) => {
+    img.tabIndex = 0;
+    img.setAttribute("role", "button");
+    img.setAttribute("aria-label", `Expand ${img.alt || "image"}`);
+
+    const expandImage = () => {
+      const imageData = { src: img.currentSrc || img.src, alt: img.alt || "" };
+      openImageLightbox(imageData);
+    };
+
+    img.addEventListener("click", expandImage);
+    img.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        expandImage();
+      }
+    });
+  });
+
   const windowLayer = document.querySelector(".window-layer");
   const boardCards = document.querySelectorAll(".home-page .board-card");
   let topZ = 320;
-  let openCount = 0;
   const openWindows = new Map();
 
   const focusWindow = (win) => {
@@ -220,14 +384,127 @@
   };
 
   const constrainWindow = (win) => {
+    if (win.classList.contains("is-full-page")) {
+      win.style.left = "0px";
+      win.style.top = "0px";
+      win.style.width = "100vw";
+      win.style.height = "100dvh";
+      return;
+    }
+
     const margin = 12;
     const rect = win.getBoundingClientRect();
+    const maxWidth = Math.max(280, window.innerWidth - margin * 2);
+    const maxHeight = Math.max(280, window.innerHeight - margin * 2);
+    if (rect.width > maxWidth) win.style.width = `${maxWidth}px`;
+    if (rect.height > maxHeight) win.style.height = `${maxHeight}px`;
     const maxLeft = window.innerWidth - Math.min(120, rect.width);
     const maxTop = window.innerHeight - 64;
     const nextLeft = Math.min(Math.max(margin, rect.left), Math.max(margin, maxLeft));
     const nextTop = Math.min(Math.max(margin, rect.top), Math.max(margin, maxTop));
     win.style.left = `${nextLeft}px`;
     win.style.top = `${nextTop}px`;
+  };
+
+  const makeResizable = (win, handle, directions) => {
+    const margin = 12;
+    const getMinWidth = () => Math.min(360, Math.max(280, window.innerWidth - 24));
+    const getMinHeight = () => Math.min(360, Math.max(280, window.innerHeight - 24));
+    let startX = 0;
+    let startY = 0;
+    let startWidth = 0;
+    let startHeight = 0;
+    let startLeft = 0;
+    let startTop = 0;
+    let resizing = false;
+
+    const frame = win.querySelector(".window-frame");
+
+    const move = (event) => {
+      if (!resizing) return;
+      if (event.cancelable) event.preventDefault();
+      const pointer = event.touches ? event.touches[0] : event;
+      const deltaX = pointer.clientX - startX;
+      const deltaY = pointer.clientY - startY;
+      const minWidth = getMinWidth();
+      const minHeight = getMinHeight();
+      const maxRight = window.innerWidth - margin;
+      const maxBottom = window.innerHeight - margin;
+      const edgeSet = new Set(directions);
+      let nextLeft = startLeft;
+      let nextTop = startTop;
+      let nextWidth = startWidth;
+      let nextHeight = startHeight;
+
+      if (edgeSet.has("right")) {
+        nextWidth = Math.max(minWidth, startWidth + deltaX);
+      }
+
+      if (edgeSet.has("bottom")) {
+        nextHeight = Math.max(minHeight, startHeight + deltaY);
+      }
+
+      if (edgeSet.has("left")) {
+        nextWidth = Math.max(minWidth, startWidth - deltaX);
+        nextLeft = startLeft + startWidth - nextWidth;
+        if (nextLeft < margin) {
+          nextWidth += nextLeft - margin;
+          nextLeft = margin;
+        }
+      }
+
+      if (edgeSet.has("top")) {
+        nextHeight = Math.max(minHeight, startHeight - deltaY);
+        nextTop = startTop + startHeight - nextHeight;
+        if (nextTop < margin) {
+          nextHeight += nextTop - margin;
+          nextTop = margin;
+        }
+      }
+
+      nextWidth = Math.min(nextWidth, maxRight - nextLeft);
+      nextHeight = Math.min(nextHeight, maxBottom - nextTop);
+
+      win.style.left = `${nextLeft}px`;
+      win.style.top = `${nextTop}px`;
+      win.style.width = `${nextWidth}px`;
+      win.style.height = `${nextHeight}px`;
+      constrainWindow(win);
+    };
+
+    const stop = () => {
+      resizing = false;
+      if (frame) frame.style.pointerEvents = "";
+      document.body.classList.remove("is-resizing-window");
+      document.removeEventListener("mousemove", move);
+      document.removeEventListener("mouseup", stop);
+      document.removeEventListener("touchmove", move);
+      document.removeEventListener("touchend", stop);
+    };
+
+    const start = (event) => {
+      if (event.cancelable) event.preventDefault();
+      if (win.classList.contains("is-full-page")) return;
+      const pointer = event.touches ? event.touches[0] : event;
+      const rect = win.getBoundingClientRect();
+      resizing = true;
+      focusWindow(win);
+      startX = pointer.clientX;
+      startY = pointer.clientY;
+      startWidth = rect.width;
+      startHeight = rect.height;
+      startLeft = rect.left;
+      startTop = rect.top;
+      if (frame) frame.style.pointerEvents = "none";
+      document.body.classList.add("is-resizing-window");
+      document.addEventListener("mousemove", move);
+      document.addEventListener("mouseup", stop);
+      document.addEventListener("touchmove", move, { passive: false });
+      document.addEventListener("touchend", stop);
+    };
+
+    handle.addEventListener("mousedown", start);
+    handle.addEventListener("touchstart", start, { passive: false });
   };
 
   const makeDraggable = (win, handle) => {
@@ -256,6 +533,10 @@
 
     const start = (event) => {
       if (event.target.closest(".window-button")) return;
+      if (win.classList.contains("is-full-page")) {
+        focusWindow(win);
+        return;
+      }
       const pointer = event.touches ? event.touches[0] : event;
       dragging = true;
       focusWindow(win);
@@ -273,6 +554,34 @@
     handle.addEventListener("touchstart", start, { passive: true });
   };
 
+  const toggleFullPageWindow = (win, button) => {
+    const isFullPage = win.classList.toggle("is-full-page");
+
+    if (isFullPage) {
+      win.dataset.restoreLeft = win.style.left;
+      win.dataset.restoreTop = win.style.top;
+      win.dataset.restoreWidth = win.style.width;
+      win.dataset.restoreHeight = win.style.height;
+      win.style.left = "0px";
+      win.style.top = "0px";
+      win.style.width = "100vw";
+      win.style.height = "100dvh";
+      button.setAttribute("aria-label", "Restore window size");
+      button.textContent = "▣";
+      focusWindow(win);
+      return;
+    }
+
+    win.style.left = win.dataset.restoreLeft || `${Math.max(16, (window.innerWidth - 880) / 2)}px`;
+    win.style.top = win.dataset.restoreTop || `${Math.max(72, (window.innerHeight - 680) / 2)}px`;
+    win.style.width = win.dataset.restoreWidth || "";
+    win.style.height = win.dataset.restoreHeight || "";
+    button.setAttribute("aria-label", "Make window full page");
+    button.textContent = "□";
+    constrainWindow(win);
+    focusWindow(win);
+  };
+
   const openBoardWindow = (card) => {
     if (!windowLayer) return;
     const href = card.getAttribute("href");
@@ -284,14 +593,34 @@
       return;
     }
 
+    openWindows.forEach((win) => win.remove());
+    openWindows.clear();
+    document.body.classList.remove("has-open-window");
+
     const label = card.querySelector(".board-label")?.textContent?.trim() || "Board";
     const tag = card.querySelector(".board-tag")?.textContent?.trim() || "Gunpla";
     const win = document.createElement("section");
     const titlebar = document.createElement("div");
     const title = document.createElement("div");
     const controls = document.createElement("div");
+    const fullPageButton = document.createElement("button");
     const closeButton = document.createElement("button");
     const frame = document.createElement("iframe");
+    const resizeHandles = [
+      ["top", ["top"]],
+      ["right", ["right"]],
+      ["bottom", ["bottom"]],
+      ["left", ["left"]],
+      ["top-left", ["top", "left"]],
+      ["top-right", ["top", "right"]],
+      ["bottom-right", ["bottom", "right"]],
+      ["bottom-left", ["bottom", "left"]],
+    ].map(([name, directions]) => {
+      const handle = document.createElement("div");
+      handle.className = `window-resize-handle resize-${name}`;
+      handle.setAttribute("aria-hidden", "true");
+      return { handle, directions };
+    });
 
     win.className = "desktop-window";
     win.setAttribute("role", "dialog");
@@ -300,33 +629,42 @@
     title.className = "window-title";
     title.textContent = `${tag} / ${label}`;
     controls.className = "window-controls";
-    closeButton.className = "window-button";
+    fullPageButton.className = "window-button";
+    fullPageButton.type = "button";
+    fullPageButton.setAttribute("aria-label", "Make window full page");
+    fullPageButton.textContent = "□";
+    closeButton.className = "window-button window-close-button";
     closeButton.type = "button";
     closeButton.setAttribute("aria-label", `Close ${label}`);
     closeButton.textContent = "×";
     frame.className = "window-frame";
     frame.title = label;
     frame.src = `${href}?window=1`;
+    frame.allow = "fullscreen";
+    frame.scrolling = "yes";
+    frame.setAttribute("allowfullscreen", "");
 
-    controls.append(closeButton);
+    controls.append(fullPageButton, closeButton);
     titlebar.append(title, controls);
-    win.append(titlebar, frame);
+    win.append(titlebar, frame, ...resizeHandles.map((item) => item.handle));
     windowLayer.append(win);
+    document.body.classList.add("has-open-window");
 
-    const offset = (openCount % 6) * 28;
-    win.style.left = `${Math.max(16, (window.innerWidth - 880) / 2 + offset)}px`;
-    win.style.top = `${Math.max(72, (window.innerHeight - 680) / 2 + offset)}px`;
-    openCount += 1;
+    win.style.left = `${Math.max(16, (window.innerWidth - 880) / 2)}px`;
+    win.style.top = `${Math.max(72, (window.innerHeight - 680) / 2)}px`;
 
     makeDraggable(win, titlebar);
+    resizeHandles.forEach(({ handle, directions }) => makeResizable(win, handle, directions));
     focusWindow(win);
     constrainWindow(win);
     openWindows.set(href, win);
 
     win.addEventListener("mousedown", () => focusWindow(win));
+    fullPageButton.addEventListener("click", () => toggleFullPageWindow(win, fullPageButton));
     closeButton.addEventListener("click", () => {
       openWindows.delete(href);
       win.remove();
+      document.body.classList.remove("has-open-window");
     });
   };
 

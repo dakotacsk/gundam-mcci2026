@@ -88,13 +88,75 @@ A futuristic control panel for a premium mecha brand.
 * military-only camouflage aesthetic
 * generic SaaS minimalism
 
+## 3. UI Elements & Effects
+
+### Custom Cursor
+* Custom Gundam RX-78-2 cursor from CDN (`https://cdn.cursors-4u.net`)
+* Position offset: 32px 32px
+* Fallback: auto
+
+### Particle Background
+* Three particle types: cyan (`#59f8e8`), blue (`#4a78ff`), pink (`#ff4fa8`)
+* Each particle has a `box-shadow: 0 0 10px currentColor`
+* Animation: `particleDrift` keyframe moves particles horizontally across viewport
+* Uses CSS custom properties `--start-y` and `--drift-y` for varied paths
+* Particle container hidden by default (`display: none`)
+
+### Ghost Canvas Trail Effect
+* Canvas-based mouse trail effect with smooth interpolation
+* Purple/violet gradient tail using `createLinearGradient`
+* Tail length: 14–68px (velocity-dependent)
+* Tail thickness: 1.6–5.5px (velocity-dependent)
+* Radial gradient halo and core at cursor position
+* Uses `lighter` composite blending mode
+* Dual-buffer canvas approach with blur filter for trail persistence
+* Color processing includes grain noise for texture
+
+### Grain Overlay
+* Fixed position overlay with dual radial gradient pattern
+* Sizes: 3px (black dots) and 4px (white dots)
+* `multiply` blend mode at 16% opacity
+* Animated with `grainShift` keyframe (subtle 2px shift)
+
+### Header (Sticky Navigation)
+* Sticky position with `z-index: 100`
+* White surface with bottom border
+* Inner layout: flex with space-between alignment
+* Contains logo (New Zelek display font) and optional back link
+* Logo: uppercase, 24px, letter-spacing 2px, blue accent on accent span
+
+### Hero Section
+* Center-aligned with large display title (clamp 48–88px)
+* Subtitle in heading font, uppercase, steel color
+* Blue accent span for emphasis
+* `fadeSlideUp` entrance animation (0.6s ease-out)
+
+### Board Grid (Homepage)
+* Flexbox wrap layout, centered
+* Cards in three sizes: large (400×350px), medium (280×245px), small (220×193px)
+* Responsive breakpoints at 900px and 600px
+* `floatIn` + `float` combo animation with staggered delays
+* Hover: scale 1.15, brightness boost, blue drop shadow
+* Contains board image, board-label (bottom-left), board-tag (top-right)
+* Labels fade/slide in on hover with 0.3s transition
+* Image swap on hover using `data-hover` attribute
+
+### Page Content Structure
+* Container max-width: 1000px (content pages), 1200px (main)
+* Page header: padding 96px 0 64px, surface background, badge in mono blue
+* Page title: display font, clamp 36–64px, uppercase
+* Section cards: white surface, default border, 32px padding
+* Section title: heading font, 22px, uppercase, blue underline border
+* Stats grid: 3-column grid, panel background cards
+
+### Footer
+* Dark navy background (`#0B1B3A`)
+* White text with 70% opacity
+* Mono font, uppercase, 12px, 2px letter-spacing
+
 ---
 
-## 3. Color System
-
-Use classic Gundam-inspired primaries with neutral support colors.
-
-### Core Palette
+## 4. Color System
 
 | Token                   |       Hex | Usage                         |
 | ----------------------- | --------: | ----------------------------- |
@@ -321,80 +383,122 @@ The visual system should borrow from decals, armor seams, and warning panels.
 
 ## 7. Components
 
-### Buttons
+### Board Card (Homepage Grid)
 
-**Primary Button**
+Primary interaction component for the homepage board selection grid.
 
-* Fill: Gundam red or Gundam blue
-* Text: white
-* Shape: rectangular with optional cut corner
-* Border: 2px dark outline or none depending on density
-* Font: `Jost` bold uppercase
+* Three sizes: large (400×350px), medium (280×245px), small (220×193px)
+* Border: none (transparent background)
+* Contains `<img>` with `data-hover` attribute for hover image swap
+* Padding: `--space-2`
+* Cursor: pointer
 
-**Secondary Button**
+**Board Label**
+* Position: absolute, bottom-left
+* Background: `rgba(252, 252, 253, 0.85)`
+* Font: `Jost` bold, 14px, uppercase
+* Opacity 0 → 1 on hover with 8px upward translate
 
-* White or panel gray fill
-* 2px dark outline
-* Hover fills with blue
-* Font: `Jost` medium/bold uppercase
+**Board Tag**
+* Position: absolute, top-right
+* Background: `rgba(252, 252, 253, 0.85)`
+* Font: `Roboto Mono`, 10px, uppercase
+* Opacity 0 → 1 on hover with 8px downward translate
 
-**Utility Button**
+**Board Image**
+* Width/height: 100%
+* `object-fit: contain`
+* `brightness(0.97)` default, `brightness(1)` on hover
+* Blue drop shadow on hover: `0 8px 24px rgba(0, 91, 184, 0.3)`
 
-* Small uppercase label
-* Yellow accent bar or left stripe
-* Used for filters, tabs, toggles
-* Font: `Roboto Mono` or `Jost`
+**Animations**
+* Staggered `floatIn` entrance animation (0.8s cubic-bezier)
+* Infinite `float` animation for subtle vertical drift
+* Hover: `scale(1.15)`, animation paused
 
-### Navigation
+### Page Header
 
-* White/navy base with strong bottom border
-* Active states marked by red underline or yellow wedge
-* Uppercase labels preferred
-* Include badge-like count chips where useful
-* Use `Jost` for primary nav and `Roboto Mono` for small status counters
+Header component for content pages.
 
-### Cards
+* No border-bottom (clean separation)
+* Background: surface color
+* Padding: `--space-9` top (96px), `--space-7` bottom (48px)
 
-* White surface
-* Thick top stripe or corner accent in blue/red
-* 1–2px outline
-* Optional small sponsor-label metadata row
-* Great place for number overlays or technical tags
+**Page Badge**
+* Font: `Roboto Mono`, 12px, uppercase, letter-spacing 2px
+* Color: Gundam blue
+* Margin bottom: `--space-3`
 
-### Tags / Chips
+**Page Title**
+* Font: `New Zelek` display
+* Size: `clamp(36px, 8vw, 64px)`, uppercase, letter-spacing 2px
+* Line height: 1.1
 
-* Uppercase
-* Compact padding
-* Colors:
+**Page Subtitle**
+* Font: `Jost`, 20px, font-weight 400
+* Color: steel
+* Margin top: `--space-4`
+* Max width: 700px
 
-  * blue = default category
-  * red = urgent / featured
-  * yellow = caution / new
-  * gray = neutral
-* Prefer `Roboto Mono` or bold `Jost`
+### Section Card
 
-### Inputs
+Content container for page body sections.
 
-* Crisp rectangular fields
-* Dark outline with blue focus ring
-* Labels should sit above fields, uppercase micro text preferred
-* Use `Noto Sans` or `Outfit` for input text
-* Use `Roboto Mono` or `Jost` for field labels
+* No background, border, or padding (clean editorial flow)
+* Margin bottom: `--space-7` (56px)
+* Full width of page
 
-### Tables / Data Panels
+**Section Title**
+* Font: `Jost`, 20px, bold, uppercase
+* Letter-spacing: 1px
+* Color: ink
+* Margin bottom: `--space-5` (24px)
 
-* Strong row separators
-* Oversized numeric values for key metrics
-* Alternating subtle panel background okay
-* Red/green should be used sparingly for state, not decoration only
-* `Roboto Mono` works well for technical rows, IDs, and values
+**Section Text**
+* Font size: 17px
+* Line height: 1.85
+* Paragraph margin: `--space-5` (24px)
 
-### Alerts / Status
+### Stats Grid
 
-* **Info:** blue + white
-* **Warning:** yellow + ink
-* **Critical:** red + white
-* **Success:** green + deep ink
+Three-column grid for displaying statistics.
+
+* CSS Grid: `repeat(3, 1fr)`
+* Gap: `--space-6` (32px)
+* Margin top: `--space-8` (96px)
+* Padding top: `--space-6` (32px)
+
+**Stat Value**
+* Font: `New Zelek` display
+* Size: 40px (larger for impact)
+* Color: Gundam blue
+
+**Stat Label**
+* Font: `Roboto Mono`, 11px, uppercase
+* Letter-spacing: 1px
+* Color: steel
+* Margin top: `--space-2`
+
+### Header (Sticky Navigation)
+
+* Position: sticky, top 0
+* Background: surface
+* Border bottom: default border
+* Padding: `--space-4` vertical
+* Z-index: 100
+
+**Logo**
+* Font: `New Zelek` display, 24px
+* Text transform: uppercase
+* Letter-spacing: 2px
+* Accent span in Gundam blue
+
+### Back Link
+
+* Font: `Roboto Mono`, 12px, uppercase
+* Letter-spacing: 1px
+* Color: Gundam blue
+* Hover: Gundam red
 
 ---
 
@@ -434,18 +538,49 @@ Motion should feel like systems activating, not floating.
 * mechanical
 * snappy
 
-### Recommended Motion
+### Implemented Animations
 
-* Panels slide in on x/y axes
-* Underlines sweep horizontally
-* Hover states add border glow or stripe reveal
-* Cards lift only slightly; prefer accent movement over soft shadows
+**fadeSlideUp**
+* Used for: Hero text, page entrance elements
+* Duration: 0.5–0.6s
+* Easing: ease-out
+* Transform: translateY(20px) → translateY(0)
+* Opacity: 0 → 1
 
-### Timing
+**floatIn**
+* Used for: Board card entrance on homepage
+* Duration: 0.8s
+* Easing: cubic-bezier(0.16, 1, 0.3, 1)
+* Transform: translateY(40px) scale(0.95) → translateY(0) scale(1)
 
-* Fast interactions: `120ms–180ms`
-* Standard transitions: `200ms–280ms`
-* Section reveals: `300ms–450ms`
+**float**
+* Used for: Subtle continuous board card drift
+* Duration: 5–7.5s (varies per card)
+* Easing: ease-in-out
+* Transform: translateY(0) → translateY(-8px) → translateY(0)
+* Infinite loop
+
+**particleDrift**
+* Used for: Particle background (cyan, blue, pink)
+* Duration: linear, infinite
+* Transform: translate3d(-12vw, var(--start-y), 0) → translate3d(112vw, calc(var(--start-y) + var(--drift-y)), 0)
+* Opacity fades in at 7% and out at 92%
+
+**grainShift**
+* Used for: Grain overlay texture
+* Duration: 0.32s
+* Easing: steps(2)
+* Transform: translate(0, 0) → translate(2px, 1px)
+* Infinite loop
+
+### Timing (Actual Values)
+
+* Board card entrance: `0.8s cubic-bezier(0.16, 1, 0.3, 1)`
+* Hero entrance: `0.6s ease-out`
+* Hover transitions: `0.3s ease-out`
+* Board card hover scale: `0.4s cubic-bezier(0.16, 1, 0.3, 1)`
+* Ghost canvas interpolation: 9% per frame (~0.09 lerp factor)
+* Float animation: `5s–7.5s ease-in-out infinite`
 
 ### Easing
 
@@ -513,7 +648,7 @@ Do **not** over-texture the whole site.
 ```css
 @font-face {
   font-family: "New Zelek";
-  src: url("/assets/New Zelek.ttf") format("truetype");
+  src: url("./assets/New Zelek.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -557,7 +692,6 @@ Do **not** over-texture the whole site.
   --font-heading: "Jost", "Outfit", "Noto Sans", sans-serif;
   --font-body: "Noto Sans", "Outfit", "Jost", sans-serif;
   --font-mono: "Roboto Mono", "Courier Prime", monospace;
-  --font-accent: "Lacquer", "Press Start 2P", cursive;
 }
 ```
 
@@ -565,33 +699,34 @@ Do **not** over-texture the whole site.
 
 ## 14. Example UI Recipes
 
-### Hero Section
+### Homepage (Board Selection)
 
-* White background
-* Giant `New Zelek` headline in ink
-* Blue content block
-* Red CTA button
-* Yellow slashes or caution ticks as accents
-* Large faded technical number in background
-* Small `Roboto Mono` labels around the main headline
+* Light gray background (`--color-bg`)
+* Centered hero with `New Zelek` display title
+* Board grid with 3 sizes (large, medium, small)
+* Board cards with image swap on hover
+* Labels fade in on hover
+* Ghost canvas trail follows cursor
+* Grain overlay adds subtle texture
 
-### Product Card
+### Content Page Layout (Editorial Style)
 
-* White panel with black outline
-* Blue title bar
-* Red status tag
-* Yellow mini-accent on top-right or bottom-left
-* Clean content body
-* `Jost` for titles, `Noto Sans` for body, `Roboto Mono` for metadata
+* Clean, minimal layout inspired by dakotacsk.com
+* Content width: 720px max (optimal reading)
+* Sticky header with logo
+* Page header: badge + title + subtitle (left-aligned, no card borders)
+* Sections flow directly without card backgrounds
+* Section titles: simple uppercase text, no underlines
+* Stats displayed as large numbers with top border separator
+* Footer in dark navy
 
-### Dashboard / Stats Section
+### Homepage Hero
 
-* Ink or navy background
-* White data cards
-* Blue chart lines
-* Red threshold markers
-* Yellow labels for highlights only
-* `Roboto Mono` for metrics and panel labels
+* `New Zelek` display headline
+* Blue accent on "Models" text
+* `Jost` uppercase subtitle in steel color
+* `fadeSlideUp` entrance animation
+* Responsive clamp sizing (48–88px)
 
 ---
 

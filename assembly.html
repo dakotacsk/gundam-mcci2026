@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assembly — GunPla</title>
+  <title>Assembly Guide — GunPla</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Jost:ital,wght@0,100..900;1,100..900&family=Lacquer&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Press+Start+2P&family=Roboto+Mono:wght@500&family=Ropa+Sans&display=swap" rel="stylesheet">
@@ -13,12 +13,114 @@
   <div class="particle-background" aria-hidden="true"></div>
   <canvas class="ghost-canvas" aria-hidden="true"></canvas>
   <div class="grain-overlay" aria-hidden="true"></div>
-  <header class="header"><div class="container header-inner"><a href="index.html" class="logo"><span class="logo-accent">Gundam</span> Model</a><a href="index.html" class="back-link">← Back to Boards</a></div></header>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span class="logo-accent">Gundam</span> Model</a>
+      <a href="index.html" class="back-link">← Back to Boards</a>
+    </div>
+  </header>
+
   <main>
-    <div class="page-header"><div class="container"><div class="page-badge">Board F</div><h1 class="page-title">Assembly</h1><p class="page-subtitle">Component breakdown and construction guide</p></div></div>
-    <div class="content"><div class="container"><div class="section animate-in"><h2 class="section-title">Overview</h2><div class="section-text"><p>Placeholder content for the Assembly section. This page provides a detailed breakdown of Gundam model kit components, assembly techniques, and best practices for beginners and experienced builders.</p><p>Understanding the assembly process helps hobbyists achieve cleaner builds and avoid common mistakes.</p></div></div><div class="section animate-in" style="animation-delay: 0.1s;"><h2 class="section-title">Components</h2><div class="section-text"><p>Additional placeholder content about component breakdown. This section will detail the various runner types, part categories, and assembly sequence recommendations.</p></div></div></div></div>
+    <div class="page-header">
+      <div class="container">
+        <div class="page-badge">Board E</div>
+        <h1 class="page-title">Assembly Guide</h1>
+        <p class="page-subtitle">How to assemble Gundam model kits</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="page-body animate-in">
+
+        <div class="section-block">
+          <div class="section-heading">
+            <div class="section-heading-bar"></div>
+            <h2>6. How to Assemble Gundam Model Kits</h2>
+          </div>
+          <div class="body-text">
+            <p>Modern Gunpla are sold as snap-fit, no-glue kits. The assembly procedure exploits the mechanical-property pairing described in Section 4: HIPS pegs interfere with LLDPE polycap sockets to make the joints, and HIPS-on-HIPS cantilever snap-fits hold the armor halves together. The standard build follows a fixed sequence.</p>
+          </div>
+        </div>
+
+        <figure class="fig">
+          <img src="./assets/gundam_parts.PNG" alt="All runners laid out before assembly begins">
+          <figcaption>The complete runner set before assembly begins. The builder lays out runners, sorts by color, and confirms parts against the manual. Required tools: a thin nipper or side-cutter, a hobby knife, and optionally fine sandpaper (#400–#1000) for nub removal.</figcaption>
+        </figure>
+
+        <div class="callout">
+          <div class="callout-label">Engineering Invariant</div>
+          <p>The kit's engineering invariants — that the build runs in a single direction, that snap-fits engage with predictable click forces, and that the polycap-and-peg fit is repeatable across thousands of mold cycles — are not properties of the assembler. They are properties of the polymers and of the molds used to shape them.</p>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-block">
+          <p class="sub-heading">Assembly Sequence</p>
+          <div class="step-cards">
+            <div class="step-card">
+              <div class="step-num">1</div>
+              <div>
+                <div class="step-title">Workspace Setup</div>
+                <div class="step-text">Builder lays out the runners, sorts by color, and confirms parts against the manual. Tools required: a thin nipper or side-cutter, a hobby knife, and optionally fine sandpaper (#400–#1000) for nub removal.</div>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-num">2</div>
+              <div>
+                <div class="step-title">Part Removal</div>
+                <div class="step-text">Each part is cut from its runner using a two-stage cut: first a coarse cut several millimeters from the part to relieve stress, then a flush cut at the gate. Two-stage cutting reduces the white stress mark caused by polystyrene crazing at the cut edge.</div>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-num">3</div>
+              <div>
+                <div class="step-title">Polycap Insertion</div>
+                <div class="step-text">Polyethylene polycaps from PC7 are pressed into the recessed sockets of HIPS armor halves before the halves are joined. Because polyethylene is more compliant than HIPS, the polycap deforms elastically into the socket; once seated, it cannot be easily removed.</div>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-num">4</div>
+              <div>
+                <div class="step-title">Snap-Fit Closure</div>
+                <div class="step-text">Most armor parts are split into a left and a right half that join along a centerline. Each half has a cantilever snap feature (a peg with a barbed undercut) that deflects elastically as it enters the mating socket then springs back to lock. HIPS designers taper the cantilever toward the tip to even out strain distribution and avoid root-fracture.</div>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-num">5</div>
+              <div>
+                <div class="step-title">Sub-Assembly Chaining</div>
+                <div class="step-text">Sub-assemblies (head, torso, arms, legs, backpack/wings, weapons) are joined via polycap joints in the order specified by the manual. The polycap joints provide post-assembly articulation: rotation, pivot, and ball-and-socket motion as appropriate.</div>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-num">6</div>
+              <div>
+                <div class="step-title">Decals and Panel Lining (Optional)</div>
+                <div class="step-text">Stickers or water-slide decals are applied last, and panel-line ink (typically an enamel-based wash) is run into the recessed lines and wiped off. The slight polarity of the styrene matrix allows the wash to wet the panel lines without beading.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="media-split mt-6">
+          <figure class="fig">
+            <img src="./assets/gundam_PC7.png" alt="PC7 polycap parts">
+            <figcaption>The PC7 polycap frame. These LLDPE inserts are pressed into armor sockets before closure — providing all post-assembly articulation without any adhesive.</figcaption>
+          </figure>
+          <figure class="fig">
+            <img src="./assets/gundam_SB13.png" alt="SB-13 HIPS armor runner">
+            <figcaption>The SB-13 HIPS armor runner. The cantilever snap features visible on armor parts are machined directly into the mold — each peg is precisely tapered to engage with its socket at a calibrated click force.</figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </div>
   </main>
-  <footer class="footer"><div class="container"><p class="footer-text">Material Science Project — MCCI 2026</p></div></footer>
+
+  <footer class="footer">
+    <div class="container"><p class="footer-text">Material Science Project — MCCI 2026</p></div>
+  </footer>
   <script src="./script.js" defer></script>
 </body>
 </html>

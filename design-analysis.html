@@ -13,12 +13,109 @@
   <div class="particle-background" aria-hidden="true"></div>
   <canvas class="ghost-canvas" aria-hidden="true"></canvas>
   <div class="grain-overlay" aria-hidden="true"></div>
-  <header class="header"><div class="container header-inner"><a href="index.html" class="logo"><span class="logo-accent">Gundam</span> Model</a><a href="index.html" class="back-link">← Back to Boards</a></div></header>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span class="logo-accent">Gundam</span> Model</a>
+      <a href="index.html" class="back-link">← Back to Boards</a>
+    </div>
+  </header>
+
   <main>
-    <div class="page-header"><div class="container"><div class="page-badge">Board PC-7</div><h1 class="page-title">Design Analysis</h1><p class="page-subtitle">Engineering and aesthetic considerations</p></div></div>
-    <div class="content"><div class="container"><div class="section animate-in"><h2 class="section-title">Overview</h2><div class="section-text"><p>Placeholder content for the Design Analysis section. This page analyzes the design philosophy behind Gundam mobile suits, exploring how form follows function in mecha design.</p><p>Every detail in a Gundam design serves a purpose—from the iconic V-fin antenna to the armor plating that channels heat away from the reactor.</p></div></div><div class="section animate-in" style="animation-delay: 0.1s;"><h2 class="section-title">Design Elements</h2><div class="section-text"><p>Additional placeholder content about design elements and engineering considerations. This section will break down specific design choices and their functional origins.</p></div></div></div></div>
+    <div class="page-header">
+      <div class="container">
+        <div class="page-badge">Board F</div>
+        <h1 class="page-title">Design Analysis</h1>
+        <p class="page-subtitle">Engineering and proportions of Gundam model kits</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="page-body animate-in">
+
+        <div class="section-block">
+          <div class="section-heading">
+            <div class="section-heading-bar"></div>
+            <h2>8. Design Analysis: Engineering and Proportions</h2>
+          </div>
+          <div class="body-text">
+            <p>The Wing Gundam stands approximately 13 cm at 1/144 scale, corresponding to an in-universe height of roughly 16.3 m. At that scale, a single armor part is on the order of 10–20 mm in its longest dimension, and panel-line widths are routinely 0.15–0.30 mm. Three engineering observations follow.</p>
+          </div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-num">13 cm</div>
+            <div class="stat-lbl">Model height at 1/144 scale</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">0.8–1.5</div>
+            <div class="stat-lbl">Armor wall thickness (mm)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">4</div>
+            <div class="stat-lbl">Max colors per injection machine</div>
+          </div>
+        </div>
+
+        <figure class="fig">
+          <img src="./assets/gundam_parts.PNG" alt="All runners from the Wing Gundam kit">
+          <figcaption>The complete Wing Gundam runner set showing the five primary color groups. Color blocking maps directly onto runner identity — each runner color is constrained by the System Injection machine's four-color limit, not by aesthetic preference.</figcaption>
+        </figure>
+
+        <hr class="section-divider">
+
+        <div class="section-block">
+          <p class="sub-heading">8.1 Wall Thickness Governs Both Stiffness and Moldability</p>
+          <div class="callout">
+            <div class="callout-label">Design Constraint</div>
+            <p>HIPS armor halves on the HG Wing Gundam are typically 0.8–1.5 mm thick. Below ≈0.6 mm the runner becomes prone to short shots (incomplete fill) during injection because the melt freezes at the cavity wall before reaching the far end. Above ≈2.0 mm the part suffers visible sink marks on the show-side surface from differential cooling. The 0.8–1.5 mm range is the simultaneous solution to "stiff enough to survive snap-fit insertion forces" and "thin enough to mold cleanly at HG cycle times."</p>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <p class="sub-heading">8.2 Joint Location Is Constrained by Polycap Geometry</p>
+          <div class="media-split">
+            <div class="text-col body-text">
+              <p>Because polycaps are molded as discrete LLDPE inserts, every articulating joint on the kit must be sized around the available polycap inventory. Inspection of the runner shows that the HG Wing Gundam reuses approximately six distinct polycap shapes for shoulders, elbows, hips, knees, ankles, and the wing-root pivot.</p>
+              <p>This re-use is itself a manufacturing constraint: it minimizes the number of distinct PE molds and standardizes joint resistance across the kit.</p>
+            </div>
+            <figure class="fig">
+              <img src="./assets/gundam_PC7.png" alt="PC7 polycap runner showing joint shapes">
+              <figcaption>The PC7 runner. Approximately six distinct polycap shapes are reused across all joint locations on the kit — a deliberate standardization that reduces PE mold count.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <p class="sub-heading">8.3 Color Blocking Maps onto Runner Identity</p>
+          <div class="body-text">
+            <p>The five primary colors of the kit — white (large surface armor), blue (boots, chest detail), red (shield, accents), yellow (V-fin and trim), and black (joints, weapons) — are not chosen aesthetically; they are chosen because System Injection multi-color molding can fit at most four colors per multi-color machine, so the layout team must decompose the design onto runners that respect that constraint.</p>
+          </div>
+          <div class="callout yellow mt-5">
+            <div class="callout-label">Notable Case</div>
+            <p>The Wing Gundam's yellow V-fin is one of the smallest and thinnest parts in the kit; its molding tolerance is the limiting case for the entire mold tool. Black HIPS runners commonly carry a higher load of carbon-black pigment (≈2 wt.%), slightly raising the modulus and lowering surface gloss compared with the white runner.</p>
+          </div>
+        </div>
+
+        <div class="media-split">
+          <figure class="fig">
+            <img src="./assets/gundam_plasticA.png" alt="Runner detail showing gate marks">
+            <figcaption>Close-up of runner surface. The thick gate marks visible at the runner perimeter are the locations where molten polymer enters the cavity. Gate position determines fill path and, for thin parts, is the primary determinant of whether a short-shot defect occurs.</figcaption>
+          </figure>
+          <figure class="fig">
+            <img src="./assets/gundam_SB13.png" alt="SB-13 runner showing detailed parts">
+            <figcaption>SB-13 runner detail. Long, slender molded parts (like buster rifle barrels) are the most challenging to fill without warpage. Bandai mitigates this with center gates and symmetric fill paths.</figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </div>
   </main>
-  <footer class="footer"><div class="container"><p class="footer-text">Material Science Project — MCCI 2026</p></div></footer>
+
+  <footer class="footer">
+    <div class="container"><p class="footer-text">Material Science Project — MCCI 2026</p></div>
+  </footer>
   <script src="./script.js" defer></script>
 </body>
 </html>

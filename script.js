@@ -1,4 +1,11 @@
 (() => {
+  if (document.body.classList.contains("content-page")) {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("window") === "1") {
+      document.body.classList.add("windowed");
+    }
+  }
+
   const ghostCanvas = document.querySelector(".ghost-canvas");
 
   if (ghostCanvas) {
@@ -196,5 +203,141 @@
     card.addEventListener("mouseleave", () => {
       img.src = defaultSrc;
     });
+  });
+
+  const windowLayer = document.querySelector(".window-layer");
+  const boardCards = document.querySelectorAll(".home-page .board-card");
+  let topZ = 320;
+  let openCount = 0;
+  const openWindows = new Map();
+
+  const focusWindow = (win) => {
+    topZ += 1;
+    document.querySelectorAll(".desktop-window").forEach((item) => {
+      item.classList.toggle("is-focused", item === win);
+    });
+    win.style.zIndex = String(topZ);
+  };
+
+  const constrainWindow = (win) => {
+    const margin = 12;
+    const rect = win.getBoundingClientRect();
+    const maxLeft = window.innerWidth - Math.min(120, rect.width);
+    const maxTop = window.innerHeight - 64;
+    const nextLeft = Math.min(Math.max(margin, rect.left), Math.max(margin, maxLeft));
+    const nextTop = Math.min(Math.max(margin, rect.top), Math.max(margin, maxTop));
+    win.style.left = `${nextLeft}px`;
+    win.style.top = `${nextTop}px`;
+  };
+
+  const makeDraggable = (win, handle) => {
+    let startX = 0;
+    let startY = 0;
+    let startLeft = 0;
+    let startTop = 0;
+    let dragging = false;
+
+    const move = (event) => {
+      if (!dragging) return;
+      if (event.cancelable) event.preventDefault();
+      const pointer = event.touches ? event.touches[0] : event;
+      win.style.left = `${startLeft + pointer.clientX - startX}px`;
+      win.style.top = `${startTop + pointer.clientY - startY}px`;
+      constrainWindow(win);
+    };
+
+    const stop = () => {
+      dragging = false;
+      document.removeEventListener("mousemove", move);
+      document.removeEventListener("mouseup", stop);
+      document.removeEventListener("touchmove", move);
+      document.removeEventListener("touchend", stop);
+    };
+
+    const start = (event) => {
+      if (event.target.closest(".window-button")) return;
+      const pointer = event.touches ? event.touches[0] : event;
+      dragging = true;
+      focusWindow(win);
+      startX = pointer.clientX;
+      startY = pointer.clientY;
+      startLeft = win.offsetLeft;
+      startTop = win.offsetTop;
+      document.addEventListener("mousemove", move);
+      document.addEventListener("mouseup", stop);
+      document.addEventListener("touchmove", move, { passive: false });
+      document.addEventListener("touchend", stop);
+    };
+
+    handle.addEventListener("mousedown", start);
+    handle.addEventListener("touchstart", start, { passive: true });
+  };
+
+  const openBoardWindow = (card) => {
+    if (!windowLayer) return;
+    const href = card.getAttribute("href");
+    if (!href) return;
+
+    const existing = openWindows.get(href);
+    if (existing) {
+      focusWindow(existing);
+      return;
+    }
+
+    const label = card.querySelector(".board-label")?.textContent?.trim() || "Board";
+    const tag = card.querySelector(".board-tag")?.textContent?.trim() || "Gunpla";
+    const win = document.createElement("section");
+    const titlebar = document.createElement("div");
+    const title = document.createElement("div");
+    const controls = document.createElement("div");
+    const closeButton = document.createElement("button");
+    const frame = document.createElement("iframe");
+
+    win.className = "desktop-window";
+    win.setAttribute("role", "dialog");
+    win.setAttribute("aria-label", `${label} window`);
+    titlebar.className = "window-titlebar";
+    title.className = "window-title";
+    title.textContent = `${tag} / ${label}`;
+    controls.className = "window-controls";
+    closeButton.className = "window-button";
+    closeButton.type = "button";
+    closeButton.setAttribute("aria-label", `Close ${label}`);
+    closeButton.textContent = "×";
+    frame.className = "window-frame";
+    frame.title = label;
+    frame.src = `${href}?window=1`;
+
+    controls.append(closeButton);
+    titlebar.append(title, controls);
+    win.append(titlebar, frame);
+    windowLayer.append(win);
+
+    const offset = (openCount % 6) * 28;
+    win.style.left = `${Math.max(16, (window.innerWidth - 880) / 2 + offset)}px`;
+    win.style.top = `${Math.max(72, (window.innerHeight - 680) / 2 + offset)}px`;
+    openCount += 1;
+
+    makeDraggable(win, titlebar);
+    focusWindow(win);
+    constrainWindow(win);
+    openWindows.set(href, win);
+
+    win.addEventListener("mousedown", () => focusWindow(win));
+    closeButton.addEventListener("click", () => {
+      openWindows.delete(href);
+      win.remove();
+    });
+  };
+
+  boardCards.forEach((card) => {
+    card.addEventListener("click", (event) => {
+      event.preventDefault();
+      openBoardWindow(card);
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    document.querySelectorAll(".desktop-window").forEach(constrainWindow);
   });
 })();

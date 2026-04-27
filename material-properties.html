@@ -13,12 +13,103 @@
   <div class="particle-background" aria-hidden="true"></div>
   <canvas class="ghost-canvas" aria-hidden="true"></canvas>
   <div class="grain-overlay" aria-hidden="true"></div>
-  <header class="header"><div class="container header-inner"><a href="index.html" class="logo"><span class="logo-accent">Gundam</span> Model</a><a href="index.html" class="back-link">← Back to Boards</a></div></header>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span class="logo-accent">Gundam</span> Model</a>
+      <a href="index.html" class="back-link">← Back to Boards</a>
+    </div>
+  </header>
+
   <main>
-    <div class="page-header"><div class="container"><div class="page-badge">Board D</div><h1 class="page-title">Material Properties</h1><p class="page-subtitle">Physical and mechanical properties of model kit plastics</p></div></div>
-    <div class="content"><div class="container"><div class="section animate-in"><h2 class="section-title">Overview</h2><div class="section-text"><p>Placeholder content for the Material Properties section. This page analyzes the tensile strength, flexibility, impact resistance, and thermal properties of the plastics used in Gundam model kits.</p><p>Understanding material properties helps hobbyists make informed decisions about assembly techniques, painting processes, and long-term preservation.</p></div></div><div class="section animate-in" style="animation-delay: 0.1s;"><h2 class="section-title">Key Properties</h2><div class="section-text"><p>Additional placeholder content about material properties. This section will detail physical characteristics, stress tolerances, and environmental resistance.</p></div></div></div></div>
+    <div class="page-header">
+      <div class="container">
+        <div class="page-badge">Board D</div>
+        <h1 class="page-title">Material Properties</h1>
+        <p class="page-subtitle">Physical and mechanical properties of model kit plastics</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="page-body animate-in">
+
+        <div class="section-block">
+          <div class="section-heading">
+            <div class="section-heading-bar"></div>
+            <h2>4. Material Properties of the Plastics</h2>
+          </div>
+          <div class="body-text">
+            <p>The two polymers identified differ across essentially every relevant mechanical, thermal, and surface property. The table below summarizes the values most relevant to a plastic model kit, compiled from Xometry, MakeItFrom.com, Laird Plastics, and Specialchem. Ranges reflect grade-to-grade variation.</p>
+          </div>
+        </div>
+
+        <div class="media-split">
+          <figure class="fig">
+            <img src="./assets/gundam_SB13.png" alt="SB-13 HIPS runner">
+            <figcaption>The SB-13 HIPS runner — rigid, glossy, and capable of holding sub-millimeter panel lines. HIPS's amorphous structure and Tg ≈ 95–100 °C keep parts dimensionally stable at all handling temperatures.</figcaption>
+          </figure>
+          <figure class="fig">
+            <img src="./assets/gundam_PC7.png" alt="PC7 LLDPE polycap runner">
+            <figcaption>The PC7 LLDPE polycap runner — soft, waxy, and designed for thousands of pose-change cycles. LLDPE's low modulus (≈0.2–0.5 GPa) gives the socket compliance to accept the HIPS peg without cracking.</figcaption>
+          </figure>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="properties-table">
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>HIPS (SB-13)</th>
+                <th>LLDPE (PC7)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Density (g/cm³)</td><td>1.04 – 1.06</td><td>0.915 – 0.925</td></tr>
+              <tr><td>Tensile modulus (GPa)</td><td>≈ 1.6 – 2.5</td><td>≈ 0.2 – 0.5</td></tr>
+              <tr><td>Tensile strength at yield (MPa)</td><td>≈ 18 – 30</td><td>≈ 15 – 30</td></tr>
+              <tr><td>Izod impact, notched (J/m)</td><td>≈ 53 – 107 (1–2 lb·ft/in)</td><td>No break (ductile failure)</td></tr>
+              <tr><td>Glass transition / melt T (°C)</td><td>Tg ≈ 95 – 100</td><td>Tm ≈ 120 – 125</td></tr>
+              <tr><td>Crystallinity</td><td>Amorphous</td><td>Semicrystalline (≈ 30–55%)</td></tr>
+              <tr><td>Injection-molding T (°C)</td><td>190 – 240</td><td>180 – 240</td></tr>
+              <tr><td>Surface</td><td>Glossy, paint-receptive</td><td>Waxy, low-friction</td></tr>
+              <tr><td>Resin code</td><td>6 (PS)</td><td>4 (LDPE/LLDPE)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-block">
+          <p class="sub-heading">4.1 Why HIPS for the Armor</p>
+          <div class="callout">
+            <div class="callout-label">Key Property</div>
+            <p>HIPS is amorphous — it neither shrinks anisotropically on cooling nor sets up internal crystalline stresses. This allows molded armor pieces to faithfully reproduce sub-millimeter panel lines. Its Tg ≈ 95–100 °C sits comfortably above all handling temperatures. Its dispersed polybutadiene phase (1–3 μm) raises impact toughness 10× over general-purpose polystyrene without sacrificing modulus by more than ≈20%.</p>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <p class="sub-heading">4.2 Why LLDPE for the Polycap</p>
+          <div class="callout">
+            <div class="callout-label">Key Property</div>
+            <p>Three properties of LLDPE make it ideal for polycap joints. First, its low modulus (≈0.2–0.5 GPa) gives the socket enough compliance to accommodate the diametral interference without cracking. Second, its semicrystalline morphology means it relaxes only slowly under sustained load — polycap grip force is maintained across hundreds of pose changes, bounded by crystalline domains acting as physical crosslinks. Third, polyethylene's low surface energy (≈31 mJ/m²) means the joint slides cleanly against the HIPS peg without stick-slip.</p>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <p class="sub-heading">4.3 Why Polycaps Are Not Glued</p>
+          <div class="callout red">
+            <div class="callout-label">Chemistry Constraint</div>
+            <p>Polyethylene is non-polar and notoriously difficult to bond. Most cyanoacrylate, model-cement, and epoxy adhesives require a wetting surface energy above ≈35 mJ/m² to develop interfacial adhesion. Without surface treatment (corona, flame, or chemical etch), neither cyanoacrylate nor polystyrene-cement will bond polyethylene. Bandai's design therefore uses interference fit and snap geometry rather than chemical bonding — a constraint set entirely by the polymer chemistry.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </main>
-  <footer class="footer"><div class="container"><p class="footer-text">Material Science Project — MCCI 2026</p></div></footer>
+
+  <footer class="footer">
+    <div class="container"><p class="footer-text">Material Science Project — MCCI 2026</p></div>
+  </footer>
   <script src="./script.js" defer></script>
 </body>
 </html>

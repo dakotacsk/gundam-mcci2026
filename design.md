@@ -1,6 +1,6 @@
 # Gundam Racing Design System
 
-A website design system inspired by vintage Tamiya racing decals: bold geometric panels, oversized condensed type, sponsor-style label blocks, directional striping, and high-contrast utility graphics — translated into a cleaner digital system using **Gundam color blocking**.
+A website design system based on vintage Tamiya racing decals: bold geometric panels, oversized condensed type, sponsor-style label blocks, directional striping, and high-contrast utility graphics. Colors follow the Gundam palette.
 
 ---
 
@@ -8,7 +8,7 @@ A website design system inspired by vintage Tamiya racing decals: bold geometric
 
 ### Reference Description
 
-The visual reference looks like a **retro Japanese racing poster / decal sheet** remixed through a mecha lens. It has the energy of vintage Tamiya packaging or sponsor-liveried RC car graphics: large stacked text, bold stripes, dense labels, panel-like segmentation, and a strong sense of motion.
+The reference looks like a retro Japanese racing poster combined with mecha styling. Visual traits of Tamiya packaging and sponsor-liveried RC car graphics: large stacked text, bold stripes, dense labels, panel-like segmentation, strong sense of motion.
 
 Key visual traits of the reference:
 
@@ -21,12 +21,14 @@ Key visual traits of the reference:
 * **Industrial caution-label energy** rather than luxury fashion minimalism
 * **Layered typography hierarchy** where giant type, small technical labels, and numeric callouts coexist in the same composition
 
-When translating that reference into web:
+Web adaptation:
+* Preserve the graphic confidence, panel blocking, and sponsor-style hierarchy
+* Reduce clutter so the interface stays usable
+* Treat decorative elements as armor seams, warning decals, and racing livery accents on a modern UI system
+* Keep the site feeling like a designed machine surface
 
-* preserve the **graphic confidence, panel blocking, and sponsor-style hierarchy**
-* reduce the amount of clutter so the interface stays usable
-* treat the decorative language like **armor seams, warning decals, and racing livery accents** applied to a modern UI system
-* keep the site feeling like a **designed machine surface**, not like a c**Core vibe**
+**Core vibe**
+
 * Mecha + motorsport
 * Sponsor-sticker energy
 * Sharp panel lines and warning-label details
@@ -64,13 +66,12 @@ When translating that reference into web:
 ## 2. Brand Personality
 
 **Primary feeling**
-A futuristic control panel for a premium mecha brand.
+A control panel for a mecha brand.
 
 **Tone**
 
 * confident
 * tactical
-* premium
 * energetic
 * precise
 
@@ -737,22 +738,21 @@ Do **not** over-texture the whole site.
 * Use hard-edged color blocking
 * Build components like modular armor panels
 * Mix white space with strong graphic accents
-* Let typography carry brand energy
-* Use red/yellow as controlled accents
-* Treat `New Zelek` as a signature display asset, not the default font everywhere
+* Use red and yellow as controlled accents
+* Treat `New Zelek` as a signature display asset
 
-### Don’t
+### Don't
 
 * Make every section loud at once
 * Overuse diagonal shapes in small UI areas
 * Use soft glassmorphism or pastel gradients
 * Put long paragraphs inside heavily decorated blocks
 * Let decorative motifs hurt readability
-* Use accent/decorative fonts for core product UX text
+* Use accent fonts for core UX text
 
 ---
 
 ## 16. One-Sentence Style Summary
 
-**A clean, high-contrast web system that blends vintage racing decal energy with iconic Gundam primary-color armor paneling, using a poster-like custom display font for brand moments and crisp modern sans typography for everything else.**
+A high-contrast web system that blends vintage racing decal energy with Gundam primary-color armor paneling. Custom display font for brand moments, modern sans-serif typography for everything else.
 

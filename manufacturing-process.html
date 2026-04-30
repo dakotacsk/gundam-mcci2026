@@ -26,28 +26,38 @@
       <div class="container">
         <div class="page-badge">Board C</div>
         <h1 class="page-title">Manufacturing Process</h1>
-        <p class="page-subtitle">How Gundam model kits are produced at scale</p>
+        <p class="page-subtitle">How GunPla is produced at scale, and what makes Bandai's process different from generic injection molding.</p>
       </div>
     </div>
 
     <div class="content">
       <div class="page-body animate-in">
 
+        <figure class="fig fig--contain">
+          <img src="./assets/online_bandai_hobby_center.jpg" alt="Bandai Hobby Center exterior in Shizuoka, Japan.">
+          <figcaption>Figure 1. The Bandai Hobby Center in Shizuoka, Japan. Bandai identifies this site as its plastic-model production base and ties it directly to four-color molding, runner recycling, and production-capacity expansion. Source: <a href="https://www.bandai.co.jp/en/miraicreation/plasticmodel/">Bandai MIRAICREATION</a>; production details: <a href="https://www.bandaispirits.co.jp/e/press/2024/241106.php">Bandai Spirits press release</a>.</figcaption>
+        </figure>
+
         <div class="section-block">
           <div class="section-heading">
             <div class="section-heading-bar"></div>
             <h2>3. Injection Molding Production Process</h2>
           </div>
+        </div>
+
+        <div class="section-block">
+          <p class="sub-heading">3.1 What I Wanted to Understand</p>
           <div class="body-text">
-            <p>Bandai's production of Gunpla at the Bandai Hobby Center in Shizuoka relies on two technologies that distinguish modern Gunpla from generic plastic models: (i) System Injection multi-color molding and (ii) tightly toleranced mold cavities that allow finished parts to engage one another by snap-fit alone. Multi-color molds inject up to four different polymer colors into a single mold tool by sequentially opening and closing gate valves between successive injection cycles. The result is a single runner that emerges from the press already containing more than one color of plastic — the basis for the "no paint required" promise of an HG kit.</p>
+            <p>A finished armor part has razor-sharp panel lines, no visible seam, and color that goes all the way through. None of this is obvious from the consumer side. Bandai does not ship the kit with a manufacturing diagram. To understand the process, I read Bandai Spirits' published technical bulletins on the Hobby Center, peer-reviewed work on multi-color injection molding, and trade-press teardowns of the System Injection process.</p>
+            <p>Bandai's process is standard injection molding — the same physics as a plastic bottle cap or a Lego brick — with two extensions: <strong>System Injection multi-color molding</strong> and <strong>tightly toleranced cavities</strong> tuned for snap-fit assembly. The "no paint required" promise of an HG kit comes from these two technical decisions.</p>
           </div>
         </div>
 
         <div class="media-split">
           <div class="img-col">
             <figure class="fig">
-              <img src="./assets/gundam_plasticA.png" alt="Gunpla plastic detail">
-              <figcaption>Detail view of HIPS runner surface showing the fine panel lines and gate mark that are characteristic of Bandai's injection process. The glossy surface is a property of amorphous HIPS freezing uniformly against the cooled mold wall.</figcaption>
+              <img src="./assets/injection_molding_boardA.jpeg" alt="Close-up of a molded styrenic runner junction and gate geometry.">
+              <figcaption>Figure 2. Close-up of a molded styrenic runner junction. The glossy surface and gate geometry are visual evidence of injection fill and mold-wall freezing, not an FTIR plot.</figcaption>
             </figure>
           </div>
           <div class="text-col">
@@ -67,7 +77,7 @@
             </div>
             <div class="callout m-0">
               <div class="callout-label">Why It Matters</div>
-              <p>Multi-color runners reduce packaging volume and eliminate post-processing painting, making the "no paint required" HG promise possible at scale.</p>
+              <p>Multi-color runners reduce packaging volume and eliminate post-processing painting. That is how the "no paint required" HG promise works at scale.</p>
             </div>
           </div>
         </div>
@@ -75,27 +85,30 @@
         <hr class="section-divider">
 
         <div class="section-block">
-          <p class="sub-heading">3.1 Process Steps</p>
+          <p class="sub-heading">3.2 Process Steps</p>
+          <div class="body-text">
+            <p>The process inside the Hobby Center runs through six steps. HIPS and polyethylene pellets shipped in by rail at the upstream end end up as the runners I cut apart on a hobby bench.</p>
+          </div>
           <div class="step-cards">
             <div class="step-card">
               <div class="step-num">1</div>
               <div>
                 <div class="step-title">Pellet Drying</div>
-                <div class="step-text">HIPS and polyethylene pellets are dried under hot air (70–80 °C for HIPS, 60–70 °C for PE) to remove moisture below ≈0.05 wt.% to prevent surface defects and hydrolytic discoloration.</div>
+                <div class="step-text">HIPS and polyethylene pellets are dried under hot air (70–80 °C for HIPS, 60–70 °C for PE) to reduce moisture below ≈0.05 wt.% before processing. Residual moisture causes surface defects and hydrolytic discoloration.</div>
               </div>
             </div>
             <div class="step-card">
               <div class="step-num">2</div>
               <div>
                 <div class="step-title">Plasticization</div>
-                <div class="step-text">A reciprocating screw extruder melts pellets at ≈200–240 °C for HIPS and ≈180–240 °C for LLDPE, building melt pressure ahead of the screw tip.</div>
+                <div class="step-text">A reciprocating screw extruder melts the dried pellets at ≈200–240 °C for HIPS and ≈180–240 °C for LLDPE, building melt pressure ahead of the screw tip.</div>
               </div>
             </div>
             <div class="step-card">
               <div class="step-num">3</div>
               <div>
                 <div class="step-title">Injection</div>
-                <div class="step-text">The screw advances axially as a piston, driving the melt through a hot runner system into the cooled mold cavity at injection pressures typically of 50–150 MPa.</div>
+                <div class="step-text">The screw advances axially as a piston, driving the melt through a hot-runner system into the cooled mold cavity at injection pressures typically of 50–150 MPa.</div>
               </div>
             </div>
             <div class="step-card">
@@ -122,21 +135,37 @@
           </div>
         </div>
 
+        <figure class="fig fig--contain">
+          <img src="./assets/online_multicolor_molding_machine.jpg" alt="Bandai multi-color injection molding machine.">
+          <figcaption>Figure 3. Multi-color injection molding machine at Bandai. The press is still the same basic melt-inject-cool system as generic injection molding, but the machine is configured around multiple material/color feeds so a single mold cycle can produce separated runner colors. Source: <a href="https://www.bandai.co.jp/en/miraicreation/plasticmodel/">Bandai MIRAICREATION</a>.</figcaption>
+        </figure>
+
         <hr class="section-divider">
 
         <div class="section-block">
-          <p class="sub-heading">3.2 Why Multi-Color Molding Is Non-Trivial</p>
+          <p class="sub-heading">3.3 Why Multi-Color Molding Is Non-Trivial</p>
           <div class="media-split">
             <div class="text-col body-text">
-              <p>Bandai's multi-color process is engineering-noteworthy because the same mold cavity must hold molten polymer at very different bulk viscosities without bleeding color. HIPS at 220 °C has a melt viscosity roughly an order of magnitude higher than LLDPE at the same temperature, which means the gate diameters and runner geometries on a multi-color mold are tuned per polymer rather than uniformly.</p>
+              <p>The same mold cavity must hold molten polymer at very different bulk viscosities without bleeding color. HIPS at 220 °C has a melt viscosity roughly an order of magnitude higher than LLDPE at the same temperature, which means the gate diameters and runner geometries on a multi-color mold are tuned per polymer rather than uniformly.</p>
+              <p>The runner that emerges from the press is a single physical part with up to four colors, no painting, and snap-features molded directly into the geometry. There is no second operation between molding and packaging.</p>
             </div>
             <div class="img-col">
               <figure class="fig">
-                <img src="./assets/gundam_parts.PNG" alt="Runner overview showing multiple colors">
-                <figcaption>The finished multi-color runner set. Each color is injected sequentially into the same mold tool — the color boundaries visible in the finished runner mark where one injection cycle ends and the next begins.</figcaption>
+                <img src="./assets/gundam_parts.PNG" alt="Multi-color runner set from the HG Wing Gundam kit.">
+                <figcaption>Figure 4. The finished multi-color runner set. Each color is injected sequentially into the same mold tool — the color boundaries visible in the finished runner mark where one injection cycle ends and the next begins.</figcaption>
               </figure>
             </div>
           </div>
+        </div>
+
+        <figure class="fig">
+          <img src="./assets/color_transition.jpeg" alt="Macro photograph of a color boundary on a multi-color runner.">
+          <figcaption>Figure 5. Macro photograph of a color boundary on a multi-color runner. The hard line where one color ends and another begins is the geometric trace of gate sequencing inside the mold tool.</figcaption>
+        </figure>
+
+        <div class="callout yellow">
+          <div class="callout-label">Engineering Constraint</div>
+          <p>The four-color limit per machine is not aesthetic. It is a hard ceiling on the System Injection design. Color choices on the kit are downstream of this constraint: the design team must decompose the visual identity of the mobile suit onto runners that respect the four-color partition.</p>
         </div>
 
       </div>

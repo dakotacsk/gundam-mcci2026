@@ -26,41 +26,61 @@
       <div class="container">
         <div class="page-badge">Board B</div>
         <h1 class="page-title">Plastic Origin</h1>
-        <p class="page-subtitle">Understanding the materials that form Gundam model kits</p>
+        <p class="page-subtitle">What the runners are actually made of, and how I know.</p>
       </div>
     </div>
 
     <div class="content">
       <div class="page-body animate-in">
 
+        <figure class="fig">
+          <img src="./assets/gundam_parts.PNG" alt="The full HG 1/144 Wing Gundam runner set laid out before assembly.">
+          <figcaption>Figure 1. The full HG 1/144 Wing Gundam runner set as it came out of the box. Each runner is a single mold cycle's worth of parts — the rigid structural runners fall in the styrenic family (HIPS / PS-rich HIPS), while the small dark runner in the lower right is the polyethylene polycap frame (PC7).</figcaption>
+        </figure>
+
         <div class="section-block">
           <div class="section-heading">
             <div class="section-heading-bar"></div>
             <h2>2. Origin and Materials</h2>
           </div>
+        </div>
+
+        <div class="section-block">
+          <p class="sub-heading">2.1 Why I Started Asking</p>
           <div class="body-text">
-            <p>We sampled two runners from a Bandai HG 1/144 Wing Gundam kit and analyzed each by FTIR spectroscopy in attenuated-total-reflectance (ATR) mode against a commercial polymer reference library. The two runners differ visibly in mechanical character: SB-13 holds the rigid armor pieces; PC7 is the polycap runner of black, rubber-like joint inserts.</p>
+            <p>As a kid I assumed the parts of a GunPla kit were all the same plastic because they all came in the same box. I also assumed that the McRib actually had baby back ribs in them. Both turned out to be false. For example, while the white armor pieces are stiff and glossy, the little black bushings between the joints are soft, slightly waxy, and visibly different even without pigment. They also behave differently under load.</p>
+            <p>I sampled three plastic forms from a Bandai HG 1/144 Wing Gundam kit and analyzed each by FTIR spectroscopy in attenuated-total-reflectance (ATR) mode against a commercial polymer reference library. <strong>SB-13</strong> and <strong>Board A</strong> are both rigid, glassy runner samples. <strong>PC7</strong> is the polycap runner of black, rubber-like joint inserts and feels soft.</p>
           </div>
         </div>
 
-        <figure class="fig">
-          <img src="./assets/gundam_parts.PNG" alt="Overview of all runners from the HG 1/144 Wing Gundam kit">
-          <figcaption>Figure 2. Overview of all runners packaged with the HG 1/144 Wing Gundam kit, including white, blue, red, yellow, and black structural runners plus the dark polycap (PC7) frame in the lower right.</figcaption>
-        </figure>
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-num">3</div>
+            <div class="stat-lbl">Plastic forms checked by FTIR</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">~30 g</div>
+            <div class="stat-lbl">Styrenic rigid plastic per HG 1/144 kit (typical)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">~5 g</div>
+            <div class="stat-lbl">LLDPE polycaps per kit (typical)</div>
+          </div>
+        </div>
 
         <hr class="section-divider">
 
         <div class="section-block">
           <div class="section-heading">
             <div class="section-heading-bar"></div>
-            <h2>2.1 SB-13 Runner — High Impact Polystyrene (HIPS)</h2>
+            <h2>2.2 SB-13 Runner — High Impact Polystyrene (HIPS)</h2>
           </div>
 
           <div class="media-split">
             <div class="text-col">
               <div class="body-text">
-                <p>The spectral evidence is consistent with HIPS for three reasons. First, the aromatic C–H stretch near 3025 cm⁻¹ and the ring modes near 1600, 1490, and 1447 cm⁻¹ are diagnostic of polystyrene's mono-substituted benzene ring. Second, the strong methylene stretches at 2924 cm⁻¹ and 2846 cm⁻¹ indicate substantial sp³ carbon content from the polybutadiene rubber phase. Third, the close library match to "Polystyrene High Impact" rather than to general-purpose polystyrene is itself a categorical assignment by the spectrometer's nearest-neighbor algorithm.</p>
-                <p>HIPS is a rubber-modified thermoplastic in which 5–15 wt.% of polybutadiene is dispersed as roughly 1–3 μm domains throughout a rigid polystyrene continuous phase. The rubber phase absorbs and dissipates impact energy by initiating multiple silver-craze bands rather than allowing a single fast-propagating crack.</p>
+                <p>I ran an FTIR-ATR scan of an SB-13 sample against the spectrometer's polymer reference library. The top three matches were "Polystyrene High Impact (Butyl)", "Bunatex" (a polybutadiene rubber brand), and a polystyrene-ethylene-butylene block copolymer. All three converge on the same material class: <strong>High Impact Polystyrene (HIPS)</strong> — a rubber-toughened polystyrene rather than general-purpose PS.</p>
+                <p>HIPS is a rubber-modified thermoplastic in which 5–15 wt.% polybutadiene is dispersed as roughly 1–3 μm domains throughout a rigid polystyrene continuous phase. The rubber phase absorbs and dissipates impact energy by initiating multiple silver-craze bands rather than allowing a single fast-propagating crack — which is why HIPS armor can take a snap-fit insertion force without spider-cracking around the peg.</p>
               </div>
               <div class="callout mt-4">
                 <div class="callout-label">FTIR Top Matches — SB-13</div>
@@ -68,9 +88,43 @@
               </div>
             </div>
             <div class="img-col">
-              <figure class="fig">
-                <img src="./assets/gundam_SB13.png" alt="SB-13 HIPS runner">
-                <figcaption>Figure 3. The SB-13 runner. Bandai labels each runner with a code identifying the mold cavity and color. The magenta tag "SB-13" allows the same molded shapes to be reproduced consistently across production runs.</figcaption>
+              <figure class="fig fig--ftir">
+                <img src="./assets/gundam_SB13.png" alt="FTIR-ATR spectrum of SB-13 sample with library hits for impact polystyrene.">
+                <figcaption>Figure 2. FTIR-ATR spectrum export for the SB-13 sample (query trace in red), with library search hits consistent with high-impact / rubber-modified polystyrene — matching the HIPS assignment in §2.2.</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <figure class="fig fig--contain">
+            <img src="./assets/sb_13_held_by_tweezers.jpeg" alt="SB-13 rigid styrenic runner sample held in tweezers.">
+            <figcaption>Figure 3. SB-13 runner sample held in tweezers after cutting. The rigid, glossy behavior matches the FTIR assignment to a hard styrenic material rather than the flexible polyethylene used for the polycaps.</figcaption>
+          </figure>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-block">
+          <div class="section-heading">
+            <div class="section-heading-bar"></div>
+            <h2>2.3 Board A Runner — PS-Rich Styrenic Blend</h2>
+          </div>
+
+          <div class="media-split">
+            <div class="text-col">
+              <div class="body-text">
+                <p>The Board A spectrum identifies the sample as a polystyrene-based rigid runner. Its library top matches were "Polystyrene High Impact #2", "Polystyrene", and "Poly(styrene-ethylene-butylene)". All three matches contain a styrenic component, which puts Board A in the same broad family as SB-13 and clearly separates it from PC7, whose spectrum matched polyethylene grades instead.</p>
+                <p>Board A is not identical to SB-13, though. SB-13 gave three hits that all pointed toward impact-modified polystyrene: HIPS, a polybutadiene rubber reference, and a styrenic block copolymer. Board A gave one HIPS hit, one plain polystyrene hit, and one styrenic elastomer / block-copolymer hit. That pattern suggests a PS-rich rigid formulation: either a HIPS grade with less rubber detected by ATR, or a mostly polystyrene runner modified just enough to resemble impact-modified styrenics in the library search.</p>
+                <p>My assignment for Board A is therefore <strong>PS-rich styrenic hard-runner plastic</strong>. It should be grouped with SB-13 for function and broad chemistry, because both are rigid polystyrene-family materials. It should not be grouped with PC7, which is the separate polyethylene polycap material. The practical conclusion is that the kit uses multiple styrenic formulations for hard parts, plus polyethylene for the flexible joint inserts.</p>
+              </div>
+              <div class="callout mt-4">
+                <div class="callout-label">FTIR Top Matches — Board A</div>
+                <p>Polystyrene High Impact #2 · Polystyrene · Poly(styrene-ethylene-butylene)</p>
+              </div>
+            </div>
+            <div class="img-col">
+              <figure class="fig fig--ftir">
+                <img src="./assets/gundam_plasticA.png" alt="FTIR-ATR spectrum of Board A sample with library hits for high-impact polystyrene, polystyrene, and poly(styrene-ethylene-butylene).">
+                <figcaption>Figure 4. FTIR-ATR spectrum export for the Board A sample. The library hits sit in the same styrenic family as SB-13, but the plain-polystyrene match suggests a PS-rich hard-runner formulation rather than an exact duplicate of the SB-13 HIPS assignment.</figcaption>
               </figure>
             </div>
           </div>
@@ -81,21 +135,21 @@
         <div class="section-block">
           <div class="section-heading">
             <div class="section-heading-bar"></div>
-            <h2>2.2 PC7 Runner — Polyethylene-Based Polycap</h2>
+            <h2>2.4 PC7 Runner — Polyethylene-Based Polycap</h2>
           </div>
 
           <div class="media-split">
             <div class="img-col">
-              <figure class="fig">
-                <img src="./assets/gundam_PC7.png" alt="PC7 polycap runner">
-                <figcaption>Figure 6. The PC7 polycap runner. Each polycap is a small black cylindrical or annular bushing that fits between two armor pieces, providing rotational or ball-joint articulation.</figcaption>
+              <figure class="fig fig--ftir">
+                <img src="./assets/gundam_PC7.png" alt="FTIR-ATR spectrum of PC7 sample with polyethylene library matches.">
+                <figcaption>Figure 5. FTIR-ATR spectrum export for the PC7 sample — library matches cluster on polyethylene grades (e.g. LLDPE-class Hostalen references), matching the joint-insert chemistry described in §2.4.</figcaption>
               </figure>
             </div>
             <div class="text-col">
               <div class="body-text">
-                <p>The PC7 runner supplies the dark polycap parts that act as joint bushings in HG and most MG kits. Unlike the rigid SB-13 armor pieces, polycaps are designed to flex and provide a press-fit interference connection that retains over many cycles of pose changes.</p>
-                <p>The PC7 spectrum is unambiguous: four classic polyethylene fingerprints are present. The 2914 and 2847 cm⁻¹ doublet corresponds to asymmetric and symmetric stretching of the methylene backbone; 1462 cm⁻¹ is the CH₂ scissoring vibration; 720–730 cm⁻¹ is the rocking doublet diagnostic for long methylene sequences and crystallinity.</p>
-                <p>The pliability comes from polyethylene's intrinsic combination of high backbone flexibility and partial crystallinity (≈30–55% for LLDPE) — not from a rubber blend as initially hypothesized.</p>
+                <p>The PC7 runner supplies the dark polycap parts that act as joint bushings in HG and most MG kits. Unlike the rigid SB-13 and Board A pieces, polycaps are designed to flex and provide a press-fit interference connection that retains its grip over many cycles of pose changes.</p>
+                <p>The library top matches for the PC7 spectrum were "Polyethylene Hostalen GM 7040" (a LyondellBasell polyethylene grade), "Polyethylene linear low density", and "Paraffin" — all consistent with a polyethylene-based polycap, with paraffin most likely present as a processing aid rather than a major structural component.</p>
+                <p>The pliability of the polycap therefore comes from polyethylene's intrinsic combination of high backbone flexibility and partial crystallinity (≈30–55% for LLDPE) — not from a rubber blend, as I initially hypothesized.</p>
               </div>
               <div class="callout mt-4">
                 <div class="callout-label">FTIR Top Matches — PC7</div>
@@ -103,6 +157,11 @@
               </div>
             </div>
           </div>
+
+          <figure class="fig fig--contain">
+            <img src="./assets/polycap_held_by_tweezers.jpeg.jpeg" alt="Single polycap held in tweezers.">
+            <figcaption>Figure 6. A single PC7 polycap held in tweezers. LLDPE's combination of low modulus and partial crystallinity means the bushing can deform locally to accept a HIPS peg, then spring back to maintain joint grip across thousands of cycles.</figcaption>
+          </figure>
         </div>
 
         <hr class="section-divider">
@@ -110,11 +169,14 @@
         <div class="section-block">
           <div class="section-heading">
             <div class="section-heading-bar"></div>
-            <h2>2.3 Why These Two Polymers?</h2>
+            <h2>2.5 Why These Polymer Families?</h2>
+          </div>
+          <div class="body-text">
+            <p>Pairing a stiff amorphous styrenic runner family with a soft semicrystalline polyolefin is not a cost decision. SB-13 and Board A supply rigid parts with fine surface detail and paint receptivity, even though they do not appear to be identical formulations. LLDPE supplies compliant polycap joints with elastic recovery and low surface energy for smooth re-posing. The important split is functional: hard styrenic plastics for visible structure, compliant polyethylene for moving joints.</p>
           </div>
           <div class="callout yellow">
             <div class="callout-label">Engineering Decision</div>
-            <p>The pairing is deliberate engineering, not cost minimization. HIPS supplies rigid armor with fine surface detail and paint receptivity. LLDPE supplies compliant polycap joints with elastic recovery and low surface energy for smooth re-posing. Pairing a stiff matrix with a soft elastomeric joint is the same strategy used in interference-fit medical-device hubs and automotive grommets — Gunpla applies it at toy scale.</p>
+            <p>The pairing is deliberate. Stiff matrix plus compliant joint is the same strategy used in interference-fit medical-device hubs and automotive grommets — GunPla applies it at toy scale, with the additional constraint that the consumer must be able to assemble the joint with bare hands and no adhesive.</p>
           </div>
         </div>
 

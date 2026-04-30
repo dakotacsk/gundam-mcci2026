@@ -26,32 +26,34 @@
       <div class="container">
         <div class="page-badge">Board D</div>
         <h1 class="page-title">Material Properties</h1>
-        <p class="page-subtitle">Physical and mechanical properties of model kit plastics</p>
+        <p class="page-subtitle">Why styrenic runners work for armor, why LLDPE works for joints, and why polycaps cannot be glued.</p>
       </div>
     </div>
 
     <div class="content">
       <div class="page-body animate-in">
 
+        <figure class="fig">
+          <div class="fig-pair">
+            <img src="./assets/boardA_held_by_tweezers.jpeg" alt="Rigid Board A styrenic runner sample held in tweezers.">
+            <img src="./assets/polycap_held_by_tweezers.jpeg.jpeg" alt="LLDPE polycap held in tweezers.">
+          </div>
+          <figcaption>Figure 1. Side-by-side comparison of a rigid styrenic runner sample and an LLDPE polycap. The two material families are physically intermixed across the kit but mechanically belong to different regimes of the polymer property space — rigid amorphous on the left, compliant semicrystalline on the right.</figcaption>
+        </figure>
+
         <div class="section-block">
           <div class="section-heading">
             <div class="section-heading-bar"></div>
             <h2>4. Material Properties of the Plastics</h2>
           </div>
-          <div class="body-text">
-            <p>The two polymers identified differ across essentially every relevant mechanical, thermal, and surface property. The table below summarizes the values most relevant to a plastic model kit, compiled from Xometry, MakeItFrom.com, Laird Plastics, and Specialchem. Ranges reflect grade-to-grade variation.</p>
-          </div>
         </div>
 
-        <div class="media-split">
-          <figure class="fig">
-            <img src="./assets/gundam_SB13.png" alt="SB-13 HIPS runner">
-            <figcaption>The SB-13 HIPS runner — rigid, glossy, and capable of holding sub-millimeter panel lines. HIPS's amorphous structure and Tg ≈ 95–100 °C keep parts dimensionally stable at all handling temperatures.</figcaption>
-          </figure>
-          <figure class="fig">
-            <img src="./assets/gundam_PC7.png" alt="PC7 LLDPE polycap runner">
-            <figcaption>The PC7 LLDPE polycap runner — soft, waxy, and designed for thousands of pose-change cycles. LLDPE's low modulus (≈0.2–0.5 GPa) gives the socket compliance to accept the HIPS peg without cracking.</figcaption>
-          </figure>
+        <div class="section-block">
+          <p class="sub-heading">4.1 Why I Looked at This</p>
+          <div class="body-text">
+            <p>How a GunPla kit snaps together, holds a pose, and why some joints go floppy after years of repositioning — all of this is explained by polymer mechanical properties. Put numbers on stiffness, impact toughness, glass transition, and surface energy for styrenic hard runners and LLDPE polycaps, and the design choices in the kit start to look inevitable.</p>
+            <p>The Board A scan does not create a whole new property regime: SB-13 and Board A are both styrenic hard-runner formulations, while PC7 is polyethylene. The largest property split is therefore between the rigid styrenic family and the polycap material. The table below summarizes the values most relevant to a plastic model kit, compiled from Xometry, MakeItFrom.com, Laird Plastics, and Specialchem. Ranges reflect grade-to-grade variation.</p>
+          </div>
         </div>
 
         <div class="table-wrapper">
@@ -59,7 +61,7 @@
             <thead>
               <tr>
                 <th>Property</th>
-                <th>HIPS (SB-13)</th>
+                <th>Styrenic hard runners (SB-13 / Board A)</th>
                 <th>LLDPE (PC7)</th>
               </tr>
             </thead>
@@ -77,26 +79,43 @@
           </table>
         </div>
 
+        <figure class="fig">
+          <img src="./assets/material_stress_strain_schematic.png" alt="Schematic stress-strain curves comparing styrenic hard runner plastic and LLDPE polycap material.">
+          <figcaption>Figure 2. Schematic tensile stress–strain curves for the styrenic hard-runner plastic and LLDPE polycap material on the same axes, based on published property ranges rather than direct tensile testing of kit parts. HIPS-like styrenics show higher stiffness and limited ductility; LLDPE shows lower stiffness and extended ductile drawing.</figcaption>
+        </figure>
+
         <hr class="section-divider">
 
         <div class="section-block">
-          <p class="sub-heading">4.1 Why HIPS for the Armor</p>
+          <p class="sub-heading">4.2 Why HIPS for the Armor</p>
           <div class="body-text">
-            <p>HIPS is amorphous — it neither shrinks anisotropically on cooling nor sets up internal crystalline stresses. This allows molded armor pieces to faithfully reproduce sub-millimeter panel lines. Its Tg ≈ 95–100 °C sits comfortably above all handling temperatures. Its dispersed polybutadiene phase (1–3 μm) raises impact toughness 10× over general-purpose polystyrene without sacrificing modulus by more than ≈20%.</p>
+            <p>HIPS is amorphous — it neither shrinks anisotropically on cooling nor sets up internal crystalline stresses. This allows molded armor pieces to faithfully reproduce sub-millimeter panel lines. Its glass transition Tg ≈ 95–100 °C sits comfortably above all handling temperatures, so the kit does not creep at room temperature or in a sun-warmed display case. Its dispersed polybutadiene phase (1–3 μm) raises notched impact toughness by roughly an order of magnitude over general-purpose polystyrene without sacrificing modulus by more than ≈20%.</p>
           </div>
         </div>
 
-        <div class="section-block">
-          <p class="sub-heading">4.2 Why LLDPE for the Polycap</p>
-          <div class="body-text">
-            <p>Three properties of LLDPE make it ideal for polycap joints. First, its low modulus (≈0.2–0.5 GPa) gives the socket enough compliance to accommodate the diametral interference without cracking. Second, its semicrystalline morphology means it relaxes only slowly under sustained load — polycap grip force is maintained across hundreds of pose changes, bounded by crystalline domains acting as physical crosslinks. Third, polyethylene's low surface energy (≈31 mJ/m²) means the joint slides cleanly against the HIPS peg without stick-slip.</p>
-          </div>
-        </div>
+        <hr class="section-divider">
 
         <div class="section-block">
-          <p class="sub-heading">4.3 Why Polycaps Are Not Glued</p>
+          <p class="sub-heading">4.3 Why LLDPE for the Polycap</p>
+          <div class="body-text">
+            <p>LLDPE works for polycap joints because of three properties. Its low modulus (≈0.2–0.5 GPa) gives the socket enough compliance to accommodate diametral interference without cracking. Its semicrystalline morphology relaxes only slowly under sustained load — polycap grip force is maintained across hundreds of pose changes, bounded by crystalline domains acting as physical crosslinks. Polyethylene's low surface energy (≈31 mJ/m²) means the joint slides cleanly against the HIPS peg without stick-slip.</p>
+          </div>
+          <figure class="fig">
+            <video src="./assets/bending_polycap.mp4" controls muted loop playsinline preload="metadata"></video>
+            <figcaption>Figure 3. PC7 polycap runner flexed by hand. The visible bending without brittle fracture is the same compliance the joint design uses when a HIPS peg is pressed into a polyethylene socket.</figcaption>
+          </figure>
+        </div>
+
+        <hr class="section-divider">
+
+        <div class="section-block">
+          <p class="sub-heading">4.4 Why Polycaps Are Not Glued</p>
           <div class="body-text">
             <p>Polyethylene is non-polar and notoriously difficult to bond. Most cyanoacrylate, model-cement, and epoxy adhesives require a wetting surface energy above ≈35 mJ/m² to develop interfacial adhesion. Without surface treatment (corona, flame, or chemical etch), neither cyanoacrylate nor polystyrene-cement will bond polyethylene. Bandai's design therefore uses interference fit and snap geometry rather than chemical bonding — a constraint set entirely by the polymer chemistry.</p>
+          </div>
+          <div class="callout">
+            <div class="callout-label">Design Consequence</div>
+            <p>Choosing polyethylene for the polycap forecloses adhesives as a joining strategy. Every articulation point on the kit therefore has to be solved with mechanical interference geometry instead. The constraint is upstream of the design — the polymer choice locks in the assembly method.</p>
           </div>
         </div>
 

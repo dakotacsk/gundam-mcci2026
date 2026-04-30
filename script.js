@@ -598,7 +598,7 @@
     document.body.classList.remove("has-open-window");
 
     const label = card.querySelector(".board-label")?.textContent?.trim() || "Board";
-    const tag = card.querySelector(".board-tag")?.textContent?.trim() || "Gunpla";
+    const tag = card.querySelector(".board-tag")?.textContent?.trim() || "GunPla";
     const win = document.createElement("section");
     const titlebar = document.createElement("div");
     const title = document.createElement("div");

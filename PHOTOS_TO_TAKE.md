@@ -32,7 +32,8 @@ No `placehold.co` images remain in the live HTML. Take-it-yourself placeholders 
 | `built_gundam_head_front.jpeg` | Head subassembly / V-fin — Assembly Fig 2; Design Analysis Fig 3 |
 | `built_gundam_head_back.jpeg` | Head subassembly back — Assembly Fig 2 |
 | `injection_molding_boardA.jpeg` | Runner gate / molded junction macro — Manufacturing Fig 2; Design Analysis Fig 4 |
-| `color_transition.jpeg` | Multi-color runner boundary — Manufacturing Fig 5 |
+| `color_transition.jpeg` | Front side of multi-color runner boundary — Manufacturing Fig 5 |
+| `color_join_backside.jpeg` | Backside of red-white shutoff / core-pin color join — Manufacturing Fig 5 |
 | `material_stress_strain_schematic.png` | Stress–strain schematic — **Material Properties Fig 2 only** |
 | `runner_skeleton_boardI.jpeg` | Cut runner skeleton — Environmental Impact Fig 3 |
 | `online_bandai_hobby_center.jpg` | Sourced Bandai Hobby Center exterior — Manufacturing Fig 1; Historical Context Fig 2 |

@@ -637,20 +637,22 @@ main, .header, .footer { position: relative; z-index: 1; }
   overflow: hidden;
   margin: var(--space-6) 0;
 }
+/* Natural aspect ratio + contain: show full image (no 16:9 crop) */
 .fig img,
 .fig video {
   width: 100%;
   display: block;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
   object-position: center;
   background: var(--color-panel);
 }
 
 .fig--contain img,
 .fig--contain video {
-  aspect-ratio: 16 / 9;
   height: auto;
+  aspect-ratio: auto;
   object-fit: contain;
 }
 
@@ -661,8 +663,9 @@ main, .header, .footer { position: relative; z-index: 1; }
   background: var(--color-outline);
 }
 .fig-pair img {
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 /* FTIR software screenshots: native aspect ratio; avoid 16:9 crop */
@@ -691,10 +694,40 @@ main, .header, .footer { position: relative; z-index: 1; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-5);
-  align-items: start;
+  /* Short column(s) stay vertically centered vs the tall column — whole bordered figure moves as a unit */
+  align-items: center;
   margin: var(--space-6) 0;
 }
-.media-split .fig { margin: 0; }
+
+.media-split .text-col {
+  align-self: start;
+  min-width: 0;
+}
+
+.media-split .img-col {
+  min-width: 0;
+}
+
+.media-split .fig {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.media-split .fig img,
+.media-split .fig video {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  /* Keep tall photos/videos closer to text-column scale (avoids huge portrait assets) */
+  max-height: min(46vh, 400px);
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+}
 
 .callout {
   border: var(--border-default);

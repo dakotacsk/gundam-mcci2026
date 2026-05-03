@@ -35,11 +35,11 @@ Gundam plastic models, usually shortened to "GunPla," sit in a strange middle gr
 
 ### 1.3 Accessibility and Skill Progression
 
-A beginner can buy a small Entry Grade or High Grade kit for roughly the price of a meal ($15-30), while more complex Master Grade, Real Grade, and Perfect Grade kits can be hundreds of dollars, depending on scale, rarity, and mechanical complexity. Someone can start with a simple snap-fit kit and no paint, glue, or specialized tools, then gradually move toward sanding, panel lining, painting, weathering, kitbashing, and full custom builds.
+A beginner can buy a small Entry Grade or High Grade kit for roughly the price of a meal, with U.S. retail examples around $10-21 for Entry Grade RX-78-2 and HGAC Wing Gundam kits, while more complex Perfect Grade kits can be hundreds of dollars; PG Unleashed RX-78-2 was listed around $299 in one current retail example. Someone can start with a simple snap-fit kit and no paint, glue, or specialized tools, then gradually move toward sanding, panel lining, painting, weathering, kitbashing, and full custom builds.
 
 ### 1.4 Scale and Community
 
-Bandai Namco reported that cumulative shipments of Gundam plastic models have surpassed **500 million units**. The community is international — builders share work-in-progress photos, custom paint jobs, competition builds, reviews, tutorials, and display setups across forums, YouTube, Reddit, Instagram, conventions, and official events.
+Bandai Namco's 2025 Fact Book reports **810.72 million cumulative shipments** of Gundam series model kits as of March 2025. The community is international — builders share work-in-progress photos, custom paint jobs, competition builds, reviews, tutorials, and display setups across forums, YouTube, Reddit, Instagram, conventions, and official events.
 
 ![Life-size Gundam display in a mall near Vancouver.](./assets/gundam_display.png)
 *Life-size Gundam display in a mall near my home in Vancouver.*
@@ -47,10 +47,10 @@ Bandai Namco reported that cumulative shipments of Gundam plastic models have su
 | Statistic | Value |
 |-----------|------:|
 | First GunPla kit released | 1980 |
-| Children in GunPla Academia by 2024 | 520K+ |
-| Elementary schools engaged | 7,100 |
+| Children in GunPla Academia by March 2024 | 520K+ |
+| Elementary schools engaged by March 2024 | 7,100 |
 
-> **Scale of Impact:** Bandai Spirits reports its multi-color injection-molding capacity has grown approximately 1.5× since the Bandai Hobby Center opened in 2006, with overall productivity up roughly 35%.
+> **Scale of Impact:** Bandai Spirits' 2024 Hobby Center expansion plan lists 10 multi-color molding machines and 84 mono-color molding machines at full operation, with production expected to rise by approximately 35% compared with fiscal 2023.
 
 ---
 
@@ -134,9 +134,9 @@ Bandai's process is standard injection molding — the same physics as a plastic
 
 | Statistic | Value |
 |-----------|------:|
-| 4-color injection machines (2008) | 17+ |
-| Multi-color capacity growth since 2006 | 1.5× |
-| Overall throughput increase at Hobby Center | 35% |
+| Multi-color molding machines planned for full FY2026 operation | 10 |
+| Mono-color molding machines planned for full FY2026 operation | 84 |
+| Expected production increase versus fiscal 2023 | 35% |
 
 > **Why It Matters:** Multi-color runners reduce packaging volume and eliminate post-processing painting. That is how the "no paint required" HG promise works at scale.
 
@@ -223,8 +223,8 @@ Every GunPla kit produces a cut "runner skeleton" — the plastic frame left aft
 | Statistic | Value |
 |-----------|------:|
 | Tons of plastic generated in U.S. (2018) | 35.7M |
-| Plastics recycled | 8.5% |
-| Share of global plastic waste that is polystyrene | ~20% |
+| Plastics recycled | 8.7% |
+| Tons of plastic landfilled in U.S. (2018) | 27M |
 
 > **Environmental Risk:** Polystyrene is a C–C-backbone polymer inert to hydrolysis and not metabolized at meaningful rates by ambient microbial communities. It is susceptible to photo- and thermo-oxidative degradation, which fragments the polymer into microplastic and nanoplastic particles. HIPS/PS-rich styrenic runners and LLDPE polycaps are not collected in standard curbside programs — statistically likely to be landfilled.
 
@@ -236,11 +236,11 @@ Bandai Spirits launched the GunPla Recycling Project in April 2021 at participat
 - **Chemical Recycling (C)** — Runners depolymerized to monomer and re-polymerized. Accepts contamination that mechanical recycling cannot, but is energy-intensive.
 - **Thermal Recycling (T)** — Material that cannot be recycled is incinerated with energy recovery.
 
-| Fiscal Year | Collected |
-|-------------|----------:|
-| 2021 | 11 t |
-| 2022 | 21 t |
-| 2023 | 40 t (≈4× in 2 years) |
+| Statistic | Value |
+|-----------|------:|
+| Runner collection locations in Japan | ~200 |
+| Collected in fiscal 2024 | 37 t |
+| Collected from April 2021 through March 2025 | 117 t |
 
 ![GunPla Recycling Project runner collection bin.](./assets/online_gunpla_recycling_bin.jpg)
 *Figure 1. Runner-collection bin at a participating retailer. Source: Bandai MIRAICREATION.*
@@ -312,8 +312,8 @@ The Wing Gundam kit in front of us is a 30-gram piece of plastic with measurable
 | Statistic | Value |
 |-----------|------:|
 | First GunPla released (1/144 RX-78-2) | 1980 |
-| Cumulative units shipped (Bandai, 2024) | 500M+ |
-| From 1980 launch to today | 45 yr |
+| Cumulative Gundam series model-kit shipments by March 2025 | 810.72M |
+| From 1980 launch to 2026 | 46 yr |
 
 ### 7.2 Grade Timeline
 
@@ -327,8 +327,8 @@ The Wing Gundam kit in front of us is a 30-gram piece of plastic with measurable
 | 1998 | Introduction of the Perfect Grade (PG) line at 1/60 scale — hundreds of parts, LED options, metal-pin reinforcement. |
 | 2006 | Bandai consolidates GunPla production at the Bandai Hobby Center in Shizuoka, Japan. |
 | 2010 | Introduction of the Real Grade (RG) line at 1/144 scale — back-porting MG inner-frame philosophy into HG form factor. |
-| 2021 | Launch of the GunPla Recycling Project: in-store runner collection. 11 t collected in first fiscal year. |
-| 2024 | Cumulative recycling collection reaches ≈72 t. "GunPla Academia" reaches ≈520,000 children across ≈7,100 schools. |
+| 2021 | Launch of the GunPla Recycling Project: in-store runner collection plus material, chemical, and thermal recycling pathways. |
+| 2025 | Bandai Namco reports approximately 117 t of runners collected from April 2021 through March 2025, including 37 t in fiscal 2024. "GunPla Academia" reaches ≈520,000 children across ≈7,100 schools by March 2024. |
 
 ### 7.3 The Wing Gundam in Context
 
@@ -403,7 +403,7 @@ The five primary colors — white (large surface armor), blue (boots, chest deta
 - **PC7 is polyethylene-based.** FTIR matches: "Polyethylene Hostalen GM 7040", "Polyethylene linear low density", and "Paraffin" — consistent with an LLDPE-class polycap.
 - **The pairing is engineering, not coincidence.** Stiff amorphous styrenic plastics for visible structure + compliant semicrystalline LLDPE for joints.
 - **Multi-color System Injection drives the no-paint promise.** Bandai's up-to-four-color injection machines decouple aesthetic color from post-processing.
-- **Closed-loop recycling exists at modest scale.** Bandai's GunPla Recycling Project collected ≈72 t over fiscal 2021–2023; collection is growing at ≈2×/year.
+- **Closed-loop recycling exists at modest scale.** Bandai's GunPla Recycling Project collected approximately 117 t from April 2021 through March 2025, including 37 t in fiscal 2024.
 
 ### 9.2 References
 
@@ -411,23 +411,31 @@ The five primary colors — white (large surface armor), blue (boots, chest deta
 
 - Maul, J. F. R. (2004). Super HIPS: improved high impact polystyrene with two sources of rubber particles. *Polymer*, 45(25), 8447–8457.
 - Rek, V., Holjevac Grgurić, T., Jelčić, Ž., & Hace, D. (2004). Effect of styrene/ethylene/butylene/styrene block copolymer on the dynamic mechanical behaviour of HIPS. *e-Polymers*, 4(1), 034.
+- Choi, J. H., Ahn, K. H., & Kim, S. Y. (2000). Effects of the degree of graft on the tensile and dynamic behavior of high impact polystyrene. *Polymer*, 41(14), 5229–5235.
+- Wang, F., Chang, L., Hu, Y., Wu, G., & Liu, H. (2019). Synthesis and Properties of In-Situ Bulk High Impact Polystyrene Toughened by High cis-1,4 Polybutadiene. *Polymers*, 11(5), 791.
 - Gulmine, J. V., Janissek, P. R., Heise, H. M., & Akcelrud, L. (2002). Polyethylene characterization by FTIR. *Polymer Testing*, 21(5), 557–563.
+- Osteraas, A. J., & Olsen, D. A. (1969). Incorporation of Functional Groups onto the Surface of Polyethylene. *Nature*, 221, 1140–1141.
 - Yang, S., et al. (2024). Comprehensive understanding of the aging and biodegradation of polystyrene-based plastics. *Environmental Pollution*, 343, 123181.
 - Xu, P., et al. (2024). Progress and Challenges in Polystyrene Recycling and Upcycling. *ChemSusChem*, 17(13).
 - Prata, J. C., et al. (2020). Polystyrene nanoparticles: sources, occurrence, distribution and toxicity. *Science of the Total Environment*, 702, 134455.
 
 **Government and Intergovernmental Sources**
 
-- U.S. EPA (2018). Plastics: Material-Specific Data. *Facts and Figures about Materials, Waste and Recycling.*
+- U.S. EPA. [Plastics: Material-Specific Data](https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/plastics-material-specific-data). *Facts and Figures about Materials, Waste and Recycling.*
 - Ministry of the Environment of Japan / J4CE. Case Study #131: GunPla Recycling Project.
+
+**Academic Handbooks**
+
+- Pu, Z. (2009). [Polystyrene](https://academic.oup.com/book/52773/chapter/421868560). In J. E. Mark (Ed.), *Polymer Data Handbook: Second Edition*. Oxford University Press.
+- Prasad, A. (2009). [Polyethylene, Linear Low-density](https://academic.oup.com/book/52773/chapter/421868213). In J. E. Mark (Ed.), *Polymer Data Handbook: Second Edition*. Oxford University Press.
 
 **Manufacturer and Industry Technical Sources**
 
-- Bandai Namco Holdings (2024). GunPla Recycling Project — Sustainability Actions.
-- Bandai Namco Holdings (2025). *Fact Book 2025*. Reports cumulative shipments surpassing 500 million units.
-- Bandai Co., Ltd. MIRAICREATION. Plastic Model Sustainability page.
-- The Gundam Base official blog (2024). Best Mecha Collection 1/144 RX-78-2 Gundam (REVIVAL Ver.) review.
-- Bandai Spirits Co., Ltd. (2024). New Factory at Bandai Hobby Center press release.
+- Bandai Namco Holdings. [GunPla Recycling Project — Sustainability Actions](https://www.bandainamco.co.jp/en/sustainability/actions/gunpla-recycle.html).
+- Bandai Namco Holdings (2025). [*Fact Book 2025*](https://www.bandainamco.co.jp/en/ir/library/assets/pdf/2025/factbook2025_en.pdf). Reports 810.72 million cumulative Gundam series model-kit shipments by March 2025.
+- Bandai Co., Ltd. / Bandai Spirits. [Sustainable activities through plastic model kits](https://www.bandai.co.jp/en/miraicreation/plasticmodel/).
+- The Gundam Base official blog (2024). [Best Mecha Collection 1/144 RX-78-2 Gundam (REVIVAL Ver.) review](https://www.gundam-base.net/staffblog/60872.html).
+- Bandai Spirits Co., Ltd. (2024). [New Factory at Bandai Hobby Center press release](https://www.bandaispirits.co.jp/e/press/2024/241106.php).
 - Bandai Spirits Co., Ltd. ECOPLA PROJECT.
 - LyondellBasell Industries. Polyethylene (PE) Technologies — Hostalen process bulletin.
 - Shimadzu Corporation. Application Note 01-00710-EN: Distinction of Polyethylene and Polypropylene by Infrared Spectroscopy.
@@ -436,7 +444,6 @@ The five primary colors — white (large surface armor), blue (boots, chest deta
 
 - Spectroscopy Online. The Infrared Spectra of Polymers II: Polyethylene; III: Hydrocarbon Polymers.
 - Xometry. High-Impact Polystyrene (HIPS): Definition, Properties, and Uses.
-- MakeItFrom.com. Polystyrene (PS).
 - Specialchem. Polyethylene Plastic: Properties, Uses & Application.
 - Wikipedia. Mobile Suit Gundam; GunPla; Hajime Katoki; Snap-fit.
 - Nippon.com (2019). Gundam at 40: The Influential Anime Series that Redefined a Genre.

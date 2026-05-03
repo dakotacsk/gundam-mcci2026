@@ -630,6 +630,31 @@ main, .header, .footer { position: relative; z-index: 1; }
 .body-text p { margin-bottom: var(--space-5); }
 .body-text p:last-child { margin-bottom: 0; }
 
+.source-link {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: rgba(101, 103, 94, 0.74);
+  border-bottom: 1px dotted rgba(101, 103, 94, 0.55);
+  white-space: nowrap;
+  vertical-align: 0.08em;
+  margin-left: 0.15rem;
+}
+
+.fig figcaption a,
+.ref-list a {
+  color: rgba(101, 103, 94, 0.82);
+  border-bottom: 1px dotted rgba(101, 103, 94, 0.55);
+}
+
+.source-link:hover,
+.fig figcaption a:hover,
+.ref-list a:hover {
+  color: var(--color-orange);
+  border-bottom-color: currentColor;
+}
+
 .fig {
   background: var(--color-surface);
   border: var(--border-default);
